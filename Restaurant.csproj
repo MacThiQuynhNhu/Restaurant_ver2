@@ -1921,6 +1921,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaiViet.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\BanDatTruoc.cs" />
+    <Compile Include="Models\DanhGia.cs" />
+    <Compile Include="Models\DanhSachGoiMon.cs" />
+    <Compile Include="Models\DauBep.cs" />
+    <Compile Include="Models\DSGM_MonAn.cs" />
+    <Compile Include="Models\GoiTopping.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\KhuyenMai.cs" />
+    <Compile Include="Models\LoaiMon.cs" />
+    <Compile Include="Models\LoaiTopping.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\MonAn.cs" />
+    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\TaiKhoan.cs" />
+    <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2326,7 +2344,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Web_Admin\assets\vendor\tinymce\tinymce.d.ts" />
