@@ -1,0 +1,118 @@
+﻿@*@model IPagedList<Restaurant.Models.BaiViet>
+    @using PagedList.Mvc;
+    @using PagedList;*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Client_Layout.cshtml";
+
+}
+
+<style>
+    .food_section .container .heading_content {
+        display: flex;
+        align-items: center;
+        max-width: 60%;
+        margin-top: 32px;
+        font-weight: bold;
+    }
+    .food_section .box-news .img-box-news {
+        border-radius: 0;
+        height: auto;
+        padding: 0;
+        background-color: #222831;
+    }
+
+    .food_section .box-news .img-box-news img {
+        max-height: initial;
+    }
+
+    .food_section .box-news .detail-box {
+        display: flex;
+        flex-direction: column;
+    }   
+
+    .food_section .box-news .detail-box a {
+        font-size: 24px;
+    }
+
+    .food_section .box-news .detail-box p {
+        display: block;
+        display: -webkit-box;
+        height: auto;
+        font-size: 16px;
+        line-height: 1.3;
+        -webkit-line-clamp: 3; /* số dòng hiển thị */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 10px;
+        text-align: justify;
+    }
+</style>
+
+@section Introduction{
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Bài viết</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
+                    <li class="breadcrumb-item text-white active" aria-current="page">Bài viết</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+<section class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center wow fadeInUp">
+            <h2>
+                Ẩm thực trong tôi
+            </h2>
+            <div class="heading_content">
+                <i class="fa fa-star"></i>
+                <p>Sự hài lòng của khách hàng là niềm hạnh phúc của chúng tôi. Hãy đến nhà hàng 5 sao <span>Thịt thăn nướng</span> để đón nhận không khí đặc biệt này nhé!!!</p>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+
+
+
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-lg-4 all pizza wow fadeInUp" style="display: flex;">
+                        <div class="box box-news">
+                            <div>
+                                <div class="img-box img-box-news">
+                                    <img src="@item.HinhAnh" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <a href="/News/SubNew/@item.MaBaiViet">
+                                        @item.TieuDe
+                                    </a>
+                                    <p>@item.NoiDung</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+       
+        @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = Request.QueryString["search"] }))*@
+
+        @*<div class="btn-box">
+            <a href="">
+                Xem thêm
+            </a>
+        </div>*@
+    </div>
+</section>
+
+
