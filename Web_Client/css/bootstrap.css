@@ -10022,7 +10022,7 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important;
   }
   .table-dark {
-    color: inherit;
+    color: inherit; 
   }
   .table-dark th,
   .table-dark td,

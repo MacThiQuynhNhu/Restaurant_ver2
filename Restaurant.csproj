@@ -1,6 +1,6 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,12 +46,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -93,12 +102,13 @@
     <Reference Include="System.Web.Mvc">
       <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+
+    <Content Include="Content\PagedList.css" />
+
     <Content Include="Content\Site.css" />
+
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.min.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap.css" />
@@ -1001,6 +1011,8 @@
     <Content Include="Web_Client\css\bootstrap.css" />
     <Content Include="Web_Client\css\bootstrap.min.css" />
     <Content Include="Web_Client\css\font-awesome.min.css" />
+    <Content Include="Web_Client\css\news.css" />
+    <Content Include="Web_Client\css\pagination.css" />
     <Content Include="Web_Client\css\responsive.css" />
     <Content Include="Web_Client\css\style.css" />
     <Content Include="Web_Client\img\about-1.jpg" />
@@ -1011,6 +1023,7 @@
     <Content Include="Web_Client\img\bg-hero.jpg" />
     <Content Include="Web_Client\img\client1.jpg" />
     <Content Include="Web_Client\img\client2.jpg" />
+    <Content Include="Web_Client\img\dau-bep.jpg" />
     <Content Include="Web_Client\img\f1.png" />
     <Content Include="Web_Client\img\f2.png" />
     <Content Include="Web_Client\img\f3.png" />
@@ -1031,6 +1044,9 @@
     <Content Include="Web_Client\img\menu-6.jpg" />
     <Content Include="Web_Client\img\menu-7.jpg" />
     <Content Include="Web_Client\img\menu-8.jpg" />
+    <Content Include="Web_Client\img\news-1.jpg" />
+    <Content Include="Web_Client\img\news-2.jpeg" />
+    <Content Include="Web_Client\img\nha-hang-cua-toi.jpg" />
     <Content Include="Web_Client\img\o1.jpg" />
     <Content Include="Web_Client\img\o2.jpg" />
     <Content Include="Web_Client\img\team-1.jpg" />
@@ -1041,6 +1057,7 @@
     <Content Include="Web_Client\img\testimonial-2.jpg" />
     <Content Include="Web_Client\img\testimonial-3.jpg" />
     <Content Include="Web_Client\img\testimonial-4.jpg" />
+    <Content Include="Web_Client\img\vesinhthucpham.jpg" />
     <Content Include="Web_Client\img\video.jpg" />
     <Content Include="Web_Client\js\bootstrap.js" />
     <Content Include="Web_Client\js\custom.js" />
@@ -1979,13 +1996,24 @@
     <Content Include="Content\Client\lib\wow\wow.js" />
     <Content Include="Content\Client\lib\wow\wow.min.js" />
     <Content Include="Web.config" />
+    <Content Include="Web_Client\slick-1.8.1\index.html" />
+    <Content Include="Web_Client\slick-1.8.1\slick\ajax-loader.gif" />
+    <Content Include="Web_Client\slick-1.8.1\slick\fonts\slick.svg" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick-theme.css" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick.css" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick.js" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Client\BookingController.cs" />
     <Compile Include="Controllers\Client\HomeController.cs" />
     <Compile Include="Controllers\Client\MenuController.cs" />
+
+    <Compile Include="Controllers\Client\NewsController.cs" />
+
     <Compile Include="Controllers\Client\SpecialController.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2402,15 +2430,122 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
+
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\SubNew.cshtml" />
+
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Special\Index.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+
+    <Content Include="Web_Client\scss\scss_news\bootstrap.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap-utilities.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_floating-labels.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_form-check.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_form-control.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_form-range.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_form-select.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_form-text.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_input-group.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_labels.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\forms\_validation.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_clearfix.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_colored-links.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_position.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_ratio.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_stretched-link.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_text-truncation.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\helpers\_visually-hidden.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_color-scheme.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_container.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_table-variants.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_utilities.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\mixins\_visually-hidden.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\utilities\_api.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_accordion.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_alert.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_badge.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_button-group.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_buttons.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_card.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_carousel.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_close.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_containers.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_forms.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_functions.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_grid.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_helpers.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_images.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_list-group.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_mixins.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_modal.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_nav.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_navbar.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_offcanvas.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_pagination.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_popover.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_progress.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_reboot.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_root.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_spinners.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_tables.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_toasts.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_transitions.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_type.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_utilities.scss" />
+    <Content Include="Web_Client\scss\scss_news\bootstrap\scss\_variables.scss" />
+    <Content Include="Web_Client\slick-1.8.1\.gitignore" />
+    <Content Include="Web_Client\slick-1.8.1\bower.json" />
+    <Content Include="Web_Client\slick-1.8.1\component.json" />
+    <Content Include="Web_Client\slick-1.8.1\CONTRIBUTING.markdown" />
+    <Content Include="Web_Client\slick-1.8.1\ISSUE_TEMPLATE.md" />
+    <Content Include="Web_Client\slick-1.8.1\LICENSE" />
+    <Content Include="Web_Client\slick-1.8.1\Makefile" />
+    <Content Include="Web_Client\slick-1.8.1\package.json" />
+    <Content Include="Web_Client\slick-1.8.1\README.markdown" />
+    <Content Include="Web_Client\slick-1.8.1\slick.jquery.json" />
+    <Content Include="Web_Client\slick-1.8.1\slick\config.rb" />
+    <Content Include="Web_Client\slick-1.8.1\slick\fonts\slick.eot" />
+    <Content Include="Web_Client\slick-1.8.1\slick\fonts\slick.ttf" />
+    <Content Include="Web_Client\slick-1.8.1\slick\fonts\slick.woff" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick-theme.less" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick-theme.scss" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick.less" />
+    <Content Include="Web_Client\slick-1.8.1\slick\slick.scss" />
+
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2456,6 +2591,7 @@
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.ttf" />
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff" />
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff2" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

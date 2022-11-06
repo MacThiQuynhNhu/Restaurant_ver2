@@ -1,0 +1,86 @@
+﻿@model Restaurant.Models.BaiViet
+@{
+    ViewBag.Title = "SubNew";
+    Layout = "~/Views/Client_Layout.cshtml";
+    var detail = (Restaurant.Models.BaiViet)ViewBag.BaiViet;
+}
+
+<style>
+    .responsive .fa-chevron-circle-right {
+        font-size: 48px;
+    }
+
+    .responsive .disabled {
+        display: none;
+    }
+</style>
+
+@section Introduction{
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Chi tiết</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="/News/Index">Bài viết</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
+                    <li class="breadcrumb-item text-white active" aria-current="page">Chi tiết</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+<section class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2 style="margin-bottom: 32px">@detail.TieuDe</h2>
+        </div>
+
+        
+
+
+        <div class="wow fadeInUp" style="display: flex; align-items: center;">
+            <a @detail.MaBaiViet" class="link-prev"><i style="font-size: 48px;" class="fa fa-solid fa-chevron-circle-left"></i></a>
+            <div style="display: flex; flex-direction: column; align-items: center; ">
+                <img style="max-width: 60%; margin-bottom: 32px;" alt="" src="@detail.HinhAnh" />
+                <p style="max-width: 60%; text-align: justify;">@detail.NoiDung</p>
+            </div>
+            <a href="@detail.MaBaiViet" class="link-next"><i style="font-size: 48px;" class="fa fa-solid fa-chevron-circle-right"></i></a>
+
+
+        </div>
+
+        
+
+
+    </div>
+</section>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/Web_Client/slick-1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="/Web_Client/slick-1.8.1/slick/slick.js"></script>
+
+<script>
+    let currentId = @detail.MaBaiViet;
+    var sumId = @detail.MaBaiViet.Count();
+    console.log(sumId)
+
+    const prevBtn = document.querySelector('.link-prev')
+    const nextBtn = document.querySelector('.link-next')
+
+    if (currentId == 1) {
+        prevBtn.style.visibility = 'hidden';
+    }
+
+    if (currentId == 6) {
+        nextBtn.style.visibility = 'hidden';
+    }
+    prevBtn.addEventListener('click', function () {
+        prevBtn.setAttribute('href', currentId - 1)
+    })
+    nextBtn.addEventListener('click', function () {
+        nextBtn.setAttribute('href', currentId + 1)
+    })
+</script>
+

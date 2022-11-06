@@ -30,6 +30,14 @@
 
     <!-- Template Stylesheet -->
     <link href="~/Web_Client/css/style.css" rel="stylesheet">
+    <link href="~/Web_Client/css/news.css" rel="stylesheet" />
+    <link href="~/Web_Client/css/pagination.css" rel="stylesheet" />
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="~/Web_Client/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/Web_Client/slick-1.8.1/slick/slick-theme.css" />
+
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -55,26 +63,33 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
+
+                        <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
+                        <a href="about.html" class="nav-item nav-link">Khuyến mãi</a>
+                        <a href="booking.html" class="nav-item nav-link">Bài viết</a>
+                        <a href="menu.html" class="nav-item nav-link">Menu</a>
+
                         <a href="~/Home" class="nav-item nav-link active">Trang chủ</a>
                          <a href="~/Special" class="nav-item nav-link">Khuyến mãi</a> 
                         <a href="~/Booking" class="nav-item nav-link">Bài viết</a>
                         <a href="~/Menu" class="nav-item nav-link">Menu</a>
+
                         <!-- <a href="menu.html" class="nav-item nav-link">Tin tức</a> -->
                         <!-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="booking.html" class="dropdown-item">Booking</a>
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    </div>
-                </div> -->
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="booking.html" class="dropdown-item">Booking</a>
+                                <a href="team.html" class="dropdown-item">Our Team</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            </div>
+                        </div> -->
                     </div>
                     <a href="booking.html" class="btn btn-primary py-2 px-4">Đặt bàn</a>
                 </div>
             </nav>
 
             @RenderSection("Introduction", required: false)
-            
+
         </div>
         <!-- Navbar & Hero End -->
         <div>
@@ -129,13 +144,13 @@
 
                         </div>
                         <!-- <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
-                        </div>
-                    </div> -->
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -159,6 +174,7 @@
 
     <!-- Template Javascript -->
     <script src="~/Web_Client/js/main.js"></script>
-    
+    <script src="../../Web_Client/js/js_news/main.js"></script>
+
 </body>
 </html>
