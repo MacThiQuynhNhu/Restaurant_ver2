@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.min.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap.css" />
@@ -931,6 +932,72 @@
     <Content Include="Web_Admin\img\stripe-bg.jpg" />
     <Content Include="Web_Admin\img\stripe-bottom.png" />
     <Content Include="Web_Admin\template_css\style.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Web_Client\assets\css\all.min.css" />
+    <Content Include="Web_Client\assets\css\animate.css" />
+    <Content Include="Web_Client\assets\css\magnific-popup.css" />
+    <Content Include="Web_Client\assets\css\main.css" />
+    <Content Include="Web_Client\assets\css\meanmenu.min.css" />
+    <Content Include="Web_Client\assets\css\owl.carousel.css" />
+    <Content Include="Web_Client\assets\css\responsive.css" />
+    <Content Include="Web_Client\assets\css\scss\pages\_404.css" />
+    <Content Include="Web_Client\assets\img\1.jpg" />
+    <Content Include="Web_Client\assets\img\a.jpg" />
+    <Content Include="Web_Client\assets\img\abt.jpg" />
+    <Content Include="Web_Client\assets\img\avaters\avatar1.png" />
+    <Content Include="Web_Client\assets\img\avaters\avatar2.png" />
+    <Content Include="Web_Client\assets\img\avaters\avatar3.png" />
+    <Content Include="Web_Client\assets\img\breadcrumb-bg.jpg" />
+    <Content Include="Web_Client\assets\img\company-logos\1.png" />
+    <Content Include="Web_Client\assets\img\company-logos\2.png" />
+    <Content Include="Web_Client\assets\img\company-logos\3.png" />
+    <Content Include="Web_Client\assets\img\company-logos\4.png" />
+    <Content Include="Web_Client\assets\img\company-logos\5.png" />
+    <Content Include="Web_Client\assets\img\dd.jpg" />
+    <Content Include="Web_Client\assets\img\favicon.png" />
+    <Content Include="Web_Client\assets\img\feature-bg.jpg" />
+    <Content Include="Web_Client\assets\img\hero-bg-2.jpg" />
+    <Content Include="Web_Client\assets\img\hero-bg-3.jpg" />
+    <Content Include="Web_Client\assets\img\hero-bg.jpg" />
+    <Content Include="Web_Client\assets\img\homepage-bg-pattern.png" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-1.jpg" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-2.jpg" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-3.jpg" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-4.jpg" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-5.jpg" />
+    <Content Include="Web_Client\assets\img\latest-news\news-bg-6.jpg" />
+    <Content Include="Web_Client\assets\img\logo.png" />
+    <Content Include="Web_Client\assets\img\products\product-img-1.jpg" />
+    <Content Include="Web_Client\assets\img\products\product-img-2.jpg" />
+    <Content Include="Web_Client\assets\img\products\product-img-3.jpg" />
+    <Content Include="Web_Client\assets\img\products\product-img-4.jpg" />
+    <Content Include="Web_Client\assets\img\products\product-img-5.jpg" />
+    <Content Include="Web_Client\assets\img\products\product-img-6.jpg" />
+    <Content Include="Web_Client\assets\img\team\team-1.jpg" />
+    <Content Include="Web_Client\assets\img\team\team-2.jpg" />
+    <Content Include="Web_Client\assets\img\team\team-3.jpg" />
+    <Content Include="Web_Client\assets\js\form-validate.js" />
+    <Content Include="Web_Client\assets\js\jquery-1.11.3.min.js" />
+    <Content Include="Web_Client\assets\js\jquery.countdown.js" />
+    <Content Include="Web_Client\assets\js\jquery.isotope-3.0.6.min.js" />
+    <Content Include="Web_Client\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Web_Client\assets\js\jquery.meanmenu.min.js" />
+    <Content Include="Web_Client\assets\js\main.js" />
+    <Content Include="Web_Client\assets\js\owl.carousel.min.js" />
+    <Content Include="Web_Client\assets\js\sticker.js" />
+    <Content Include="Web_Client\assets\js\waypoints.js" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.svg" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.svg" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.svg" />
     <Content Include="Web_Client\css\bootstrap.css" />
     <Content Include="Web_Client\css\bootstrap.min.css" />
     <Content Include="Web_Client\css\font-awesome.min.css" />
@@ -1918,6 +1985,7 @@
     <Compile Include="Controllers\Client\BookingController.cs" />
     <Compile Include="Controllers\Client\HomeController.cs" />
     <Compile Include="Controllers\Client\MenuController.cs" />
+    <Compile Include="Controllers\Client\SpecialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2334,12 +2402,60 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Special\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Web_Client\assets\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Web_Client\assets\css\scss\base\_mixins.scss" />
+    <Content Include="Web_Client\assets\css\scss\base\_typography.scss" />
+    <Content Include="Web_Client\assets\css\scss\base\_variables.scss" />
+    <Content Include="Web_Client\assets\css\scss\common\_common.scss" />
+    <Content Include="Web_Client\assets\css\scss\common\_footer.scss" />
+    <Content Include="Web_Client\assets\css\scss\common\_header.scss" />
+    <Content Include="Web_Client\assets\css\scss\common\_hover.scss" />
+    <Content Include="Web_Client\assets\css\scss\main.scss" />
+    <Content Include="Web_Client\assets\css\scss\pages\_404.scss" />
+    <Content Include="Web_Client\assets\css\scss\pages\_about.scss" />
+    <Content Include="Web_Client\assets\css\scss\pages\_contact.scss" />
+    <Content Include="Web_Client\assets\css\scss\pages\_shop.scss" />
+    <Content Include="Web_Client\assets\css\scss\prepros-6.config" />
+    <Content Include="Web_Client\assets\css\scss\sections\_about.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_cart-banner.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_hero.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_list.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_news.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_shop-banner.scss" />
+    <Content Include="Web_Client\assets\css\scss\sections\_testimonials.scss" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.eot" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.eot_" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.woff" />
+    <Content Include="Web_Client\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.eot" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.eot_" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.woff" />
+    <Content Include="Web_Client\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.eot" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.eot_" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff" />
+    <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
