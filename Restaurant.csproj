@@ -2344,7 +2344,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
+
     <Folder Include="folder_vietduc\" />
+
+    <Folder Include="NewFolder1\" />
+    <Folder Include="tuananh\" />
+
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Web_Admin\assets\vendor\tinymce\tinymce.d.ts" />
