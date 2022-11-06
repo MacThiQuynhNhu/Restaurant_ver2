@@ -2344,6 +2344,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Admin\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Web_Admin\assets\vendor\tinymce\tinymce.d.ts" />
