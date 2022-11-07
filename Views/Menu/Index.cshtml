@@ -1,9 +1,8 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Client_Layout.cshtml";
-}
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Client_Layout.cshtml"; }
 @section Introduction{
+
     <div class="container-xxl py-5 bg-dark hero-header mb-5">
         <div class="container text-center my-5 pt-5 pb-4">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Thực đơn</h1>
@@ -24,21 +23,26 @@
             <h2>
             </h2>
         </div>
-
         <ul class="filters_menu">
             <li class="active" data-filter="*">Tất cả</li>
             <li data-filter=".burger">Bữa sáng</li>
             <li data-filter=".pizza">Bàn tiệc</li>
             <li data-filter=".pasta">Bữa tối</li>
         </ul>
+        @*<*@
+        <!--div class="filters_menu">
 
-        <div class="filters-content">
+            <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
+            <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+            <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
+        </div>-->
+        <div class="filters-content" id="Tất cả">
             <div class="row grid">
                 <div class="col-sm-6 col-lg-4 all pizza">
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f1.png" alt="">
+                                <img src="~/Web_Client/img/launuong.jpg" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
@@ -125,7 +129,7 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f2.png" alt="">
+                                <img src="~/Web_Client/img/bunbotron.jpg" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
@@ -136,7 +140,7 @@
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        50,000 VNĐ/1 suất
+                                        30,000 VNĐ/1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -210,11 +214,11 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f3.png" alt="">
+                                <img src="~/Web_Client/img/f3.png" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
-                                    Pizza
+                                    Pizza hải sản
                                 </h5>
                                 <p>
                                     Tôm, mực, thanh cua, ớt chuông, hành tây, dứa, sốt cà chua tươi, phô mai
@@ -295,18 +299,18 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f4.png" alt="">
+                                <img src="~/Web_Client/img/mon-bo-bit-tet.jpg" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
                                     Bít tết
                                 </h5>
                                 <p>
-                                    Gồm Thịt bò, trứng, pate, khoai tây, hành tây, cà chua, nước sốt, bánh mỳ
+                                    Gồm Thịt bò,trứng,hành tây,nước sốt, bánh mỳ
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        68,000 VNĐ/ 1 suất
+                                        70,000 VNĐ/ 1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -380,20 +384,20 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f1.png" alt="">
+                                <img src="~/Web_Client/img/f9.png" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
-                                    Lẩu nướng
+                                    Pasta
                                 </h5>
                                 <p>
 
-                                    Combo đầy đủ thịt 3 chỉ lợn, thịt gà, các loại rau ăn kèm, nước sốt chấm
+                                    Combo đầy đủ thịt 3 chỉ lợn, mỳ, nước sốt chấm
 
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        200,000 VNĐ/1 suất
+                                        99,000 VNĐ/1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -467,18 +471,18 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f2.png" alt="">
+                                <img src="~/Web_Client/img/bunnemtron.jpeg" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
-                                    Bún bò trộn Nam Bộ
+                                    Bún nem trộn Nam Bộ
                                 </h5>
                                 <p>
-                                    Đảm bảo thịt tươi mua hàng ngày, nói không với thịt đông lạnh
+                                    Đảm bảo thịt cuốn nem chất lượng,đạt tiêu chuẩn
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        50,000 VNĐ/1 suất
+                                        45,000 VNĐ/1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -552,18 +556,18 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f3.png" alt="">
+                                <img src="~/Web_Client/img/f3.png" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
                                     Pizza
                                 </h5>
                                 <p>
-                                    Tôm, mực, thanh cua, ớt chuông, hành tây, dứa, sốt cà chua tươi, phô mai
+                                    thanh cua, ớt chuông, hành tây, dứa, sốt cà chua tươi, phô mai
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        85,000 VNĐ/1 suất
+                                        105,000 VNĐ/1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -637,18 +641,21 @@
                     <div class="box">
                         <div>
                             <div class="img-box">
-                                <img src="img/f4.png" alt="">
+                                <img src="~/Web_Client/img/khoaitaychien.jpg" />
                             </div>
                             <div class="detail-box">
                                 <h5 style="color:white">
-                                    Bít tết
+                                    Khoai tây chiên sốt phô mai
+
+
                                 </h5>
                                 <p>
-                                    Gồm Thịt bò, trứng, pate, khoai tây, hành tây, cà chua, nước sốt, bánh mỳ
+                                    Gồm khoai tây chiên,mozzarella,hành lá,sốt kem
+                                    --------------------------------
                                 </p>
                                 <div class="options">
                                     <h6 style="color:white">
-                                        68,000 VNĐ/ 1 suất
+                                        28,000 VNĐ/ 1 suất
                                     </h6>
                                     <a href="">
                                         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
@@ -727,4 +734,3 @@
         </div>
     </div>
 </section>
-

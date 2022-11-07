@@ -104,11 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-
     <Content Include="Content\PagedList.css" />
-
     <Content Include="Content\Site.css" />
-
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap-theme.min.css" />
     <Content Include="Web_Admin\assets\Content\bootstrap.css" />
@@ -1021,6 +1018,9 @@
     <Content Include="Web_Client\img\about-4.jpg" />
     <Content Include="Web_Client\img\about-img.png" />
     <Content Include="Web_Client\img\bg-hero.jpg" />
+    <Content Include="Web_Client\img\bittet.jpg" />
+    <Content Include="Web_Client\img\bunbotron.jpg" />
+    <Content Include="Web_Client\img\bunnemtron.jpeg" />
     <Content Include="Web_Client\img\client1.jpg" />
     <Content Include="Web_Client\img\client2.jpg" />
     <Content Include="Web_Client\img\dau-bep.jpg" />
@@ -1036,6 +1036,8 @@
     <Content Include="Web_Client\img\favicon.png" />
     <Content Include="Web_Client\img\hero-bg.jpg" />
     <Content Include="Web_Client\img\hero.png" />
+    <Content Include="Web_Client\img\khoaitaychien.jpg" />
+    <Content Include="Web_Client\img\launuong.jpg" />
     <Content Include="Web_Client\img\menu-1.jpg" />
     <Content Include="Web_Client\img\menu-2.jpg" />
     <Content Include="Web_Client\img\menu-3.jpg" />
@@ -1044,6 +1046,7 @@
     <Content Include="Web_Client\img\menu-6.jpg" />
     <Content Include="Web_Client\img\menu-7.jpg" />
     <Content Include="Web_Client\img\menu-8.jpg" />
+    <Content Include="Web_Client\img\mon-bo-bit-tet.jpg" />
     <Content Include="Web_Client\img\news-1.jpg" />
     <Content Include="Web_Client\img\news-2.jpeg" />
     <Content Include="Web_Client\img\nha-hang-cua-toi.jpg" />
@@ -2009,11 +2012,8 @@
     <Compile Include="Controllers\Client\BookingController.cs" />
     <Compile Include="Controllers\Client\HomeController.cs" />
     <Compile Include="Controllers\Client\MenuController.cs" />
-
     <Compile Include="Controllers\Client\NewsController.cs" />
-
     <Compile Include="Controllers\Client\SpecialController.cs" />
-
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2430,21 +2430,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
-
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\SubNew.cshtml" />
-
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Special\Index.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-
     <Content Include="Web_Client\scss\scss_news\bootstrap.scss" />
     <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap-grid.scss" />
     <Content Include="Web_Client\scss\scss_news\bootstrap\scss\bootstrap-reboot.scss" />
@@ -2545,7 +2541,6 @@
     <Content Include="Web_Client\slick-1.8.1\slick\slick-theme.scss" />
     <Content Include="Web_Client\slick-1.8.1\slick\slick.less" />
     <Content Include="Web_Client\slick-1.8.1\slick\slick.scss" />
-
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Web_Client\assets\bootstrap\css\bootstrap-reboot.css.map" />
@@ -2591,7 +2586,6 @@
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.ttf" />
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff" />
     <Content Include="Web_Client\assets\webfonts\fa-solid-900.woff2" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
