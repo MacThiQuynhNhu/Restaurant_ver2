@@ -12,7 +12,7 @@ namespace Restaurant.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhuyenMai()
         {
-            MonAns = new HashSet<MonAn>();
+            MonAn_KhuyenMai = new HashSet<MonAn_KhuyenMai>();
         }
 
         [Key]
@@ -32,6 +32,6 @@ namespace Restaurant.Models
         public string Mota { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonAn> MonAns { get; set; }
+        public virtual ICollection<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
     }
 }
