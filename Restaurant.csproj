@@ -1052,6 +1052,7 @@
     <Content Include="Web_Client\img\nha-hang-cua-toi.jpg" />
     <Content Include="Web_Client\img\o1.jpg" />
     <Content Include="Web_Client\img\o2.jpg" />
+    <Content Include="Web_Client\img\Restaurant.jpg" />
     <Content Include="Web_Client\img\team-1.jpg" />
     <Content Include="Web_Client\img\team-2.jpg" />
     <Content Include="Web_Client\img\team-3.jpg" />
