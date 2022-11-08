@@ -28,7 +28,8 @@ namespace Restaurant.Models
         public virtual DbSet<MonAn> MonAns { get; set; }
         public virtual DbSet<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<NhomNguoiDung> NhomNguoiDungs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topping> Toppings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -106,6 +107,10 @@ namespace Restaurant.Models
             modelBuilder.Entity<DauBep>()
                 .Property(e => e.MaDauBep)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<DauBep>()
+                .Property(e => e.SoDienThoai)
+                .IsFixedLength();
 
             modelBuilder.Entity<DSGM_MonAn>()
                 .Property(e => e.MaGoiMon)
@@ -205,20 +210,24 @@ namespace Restaurant.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
-                .Property(e => e.MaTaiKhoan)
-                .IsUnicode(false);
+                .Property(e => e.SoDienThoai)
+                .IsFixedLength();
 
-            modelBuilder.Entity<TaiKhoan>()
-                .Property(e => e.MaTaiKhoan)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoan>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.TenDangNhap)
                 .IsFixedLength();
 
-            modelBuilder.Entity<TaiKhoan>()
+            modelBuilder.Entity<NhanVien>()
                 .Property(e => e.MatKhau)
                 .IsFixedLength();
+
+            modelBuilder.Entity<NhanVien>()
+                .Property(e => e.MaNhom)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NhomNguoiDung>()
+                .Property(e => e.MaNhom)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Topping>()
                 .Property(e => e.MaTopping)

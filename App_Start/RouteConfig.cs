@@ -16,7 +16,7 @@ namespace Restaurant
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Manager_Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

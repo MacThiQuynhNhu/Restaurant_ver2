@@ -6,24 +6,23 @@ namespace Restaurant.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("TaiKhoan")]
-    public partial class TaiKhoan
+    [Table("NhomNguoiDung")]
+    public partial class NhomNguoiDung
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaiKhoan()
+        public NhomNguoiDung()
         {
             NhanViens = new HashSet<NhanVien>();
         }
 
         [Key]
         [StringLength(10)]
-        public string MaTaiKhoan { get; set; }
+        public string MaNhom { get; set; }
 
-        [StringLength(50)]
-        public string TenDangNhap { get; set; }
+        [StringLength(20)]
+        public string TenNhom { get; set; }
 
-        [StringLength(30)]
-        public string MatKhau { get; set; }
+        public string GhiChu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanViens { get; set; }

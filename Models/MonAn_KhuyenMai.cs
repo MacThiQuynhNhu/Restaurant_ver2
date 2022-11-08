@@ -18,7 +18,7 @@ namespace Restaurant.Models
         [StringLength(10)]
         public string MaKhuyenMai { get; set; }
 
-        public string MoTa { get; set; }
+        public string mota { get; set; }
 
         public virtual KhuyenMai KhuyenMai { get; set; }
 

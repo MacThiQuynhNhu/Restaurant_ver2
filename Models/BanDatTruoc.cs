@@ -22,7 +22,7 @@ namespace Restaurant.Models
 
         public TimeSpan? Gio { get; set; }
 
-        public int? SoLuon { get; set; }
+        public int? SoLuong { get; set; }
 
         [StringLength(200)]
         public string GhiChu { get; set; }

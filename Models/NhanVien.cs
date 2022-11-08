@@ -22,15 +22,28 @@ namespace Restaurant.Models
         [StringLength(50)]
         public string HoTen { get; set; }
 
+        public bool? GioiTinh { get; set; }
+
+        [StringLength(20)]
+        public string SoDienThoai { get; set; }
+
+        public string DiaChi { get; set; }
+
         [StringLength(50)]
         public string ChucVu { get; set; }
 
+        [StringLength(50)]
+        public string TenDangNhap { get; set; }
+
+        [StringLength(30)]
+        public string MatKhau { get; set; }
+
         [StringLength(10)]
-        public string MaTaiKhoan { get; set; }
+        public string MaNhom { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual NhomNguoiDung NhomNguoiDung { get; set; }
     }
 }
