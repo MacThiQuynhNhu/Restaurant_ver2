@@ -2033,6 +2033,7 @@
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\MonAn.cs" />
     <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
