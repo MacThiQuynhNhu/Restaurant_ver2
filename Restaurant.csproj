@@ -2009,11 +2009,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Cashier\Cashier_HoaDonController.cs" />
+    <Compile Include="Controllers\Cashier\Cashier_HomeController.cs" />
+    <Compile Include="Controllers\Cashier\Cashier_TaiKhoanCaNhanController.cs" />
+    <Compile Include="Controllers\Cashier\Cashier_ThongKeController.cs" />
     <Compile Include="Controllers\Client\BookingController.cs" />
     <Compile Include="Controllers\Client\HomeController.cs" />
     <Compile Include="Controllers\Client\MenuController.cs" />
     <Compile Include="Controllers\Client\NewsController.cs" />
     <Compile Include="Controllers\Client\SpecialController.cs" />
+    <Compile Include="Controllers\Manager\Manager_DauBepController.cs" />
+    <Compile Include="Controllers\Manager\Manager_HomeController.cs" />
+    <Compile Include="Controllers\Manager\Manager_KhuyenMaiController.cs" />
+    <Compile Include="Controllers\Manager\Manager_LoaiMonAnController.cs" />
+    <Compile Include="Controllers\Manager\Manager_MonAnController.cs" />
+    <Compile Include="Controllers\Manager\Manager_NhanVienController.cs" />
+    <Compile Include="Controllers\Manager\Manager_TaiKhoanController.cs" />
+    <Compile Include="Controllers\Manager\Manager_ThongTinCaNhanController.cs" />
+    <Compile Include="Controllers\Manager\Manager_TrangThaiBanController.cs" />
+    <Compile Include="Controllers\Receptionist\Receptionist_DatBanTruocController.cs" />
+    <Compile Include="Controllers\Receptionist\Receptionist_HomeController.cs" />
+    <Compile Include="Controllers\Receptionist\Receptionist_KhachHangController.cs" />
+    <Compile Include="Controllers\Receptionist\Receptionist_TrangThaiBanController.cs" />
+    <Compile Include="Controllers\Waiter\Waiter_HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2032,8 +2050,8 @@
     <Compile Include="Models\LoaiTopping.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\MonAn.cs" />
+    <Compile Include="Models\MonAn_KhuyenMai.cs" />
     <Compile Include="Models\NhanVien.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="Models\Topping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2428,7 +2446,6 @@
     <Content Include="Content\Client\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Content\Client\scss\bootstrap\scss\_variables.scss" />
     <Content Include="Views\Client_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
@@ -2436,6 +2453,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Special\Index.cshtml" />
+    <Content Include="Views\Manager_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manager_Home\Index.cshtml" />
+    <Content Include="Views\Receptionist_Layout.cshtml" />
+    <Content Include="Views\Cashier_Layout.cshtml" />
+    <Content Include="Views\Receptionist_Home\Index.cshtml" />
+    <Content Include="Views\Cashier_Home\Index.cshtml" />
+    <Content Include="Views\Waiter_Layout.cshtml" />
+    <Content Include="Views\Waiter_Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2590,7 +2616,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Admin\" />
+    <Folder Include="Views\Cashier_HoaDon\" />
+    <Folder Include="Views\Cashier_TaiKhoanCaNhan\" />
+    <Folder Include="Views\Cashier_ThongKe\" />
+    <Folder Include="Views\Manager_DauBep\" />
+    <Folder Include="Views\Manager_KhuyenMai\" />
+    <Folder Include="Views\Manager_LoaiMonAn\" />
+    <Folder Include="Views\Manager_MonAn\" />
+    <Folder Include="Views\Manager_NhanVien\" />
+    <Folder Include="Views\Manager_TaiKhoan\" />
+    <Folder Include="Views\Manager_ThongTinCaNhan\" />
+    <Folder Include="Views\Manager_TrangThaiBan\" />
+    <Folder Include="Views\Receptionist_DatBanTruoc\" />
+    <Folder Include="Views\Receptionist_KhachHang\" />
+    <Folder Include="Views\Receptionist_TrangThaiBan\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Web_Admin\assets\vendor\tinymce\tinymce.d.ts" />

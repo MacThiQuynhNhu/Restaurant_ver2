@@ -13,8 +13,8 @@ namespace Restaurant.Models
         public MonAn()
         {
             DSGM_MonAn = new HashSet<DSGM_MonAn>();
+            MonAn_KhuyenMai = new HashSet<MonAn_KhuyenMai>();
             Toppings = new HashSet<Topping>();
-            KhuyenMais = new HashSet<KhuyenMai>();
         }
 
         [Key]
@@ -44,9 +44,9 @@ namespace Restaurant.Models
         public virtual LoaiMon LoaiMon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Topping> Toppings { get; set; }
+        public virtual ICollection<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhuyenMai> KhuyenMais { get; set; }
+        public virtual ICollection<Topping> Toppings { get; set; }
     }
 }

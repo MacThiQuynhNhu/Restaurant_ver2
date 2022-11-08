@@ -26,8 +26,8 @@ namespace Restaurant.Models
         public virtual DbSet<LoaiMon> LoaiMons { get; set; }
         public virtual DbSet<LoaiTopping> LoaiToppings { get; set; }
         public virtual DbSet<MonAn> MonAns { get; set; }
+        public virtual DbSet<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<Topping> Toppings { get; set; }
 
@@ -162,9 +162,9 @@ namespace Restaurant.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<KhuyenMai>()
-                .HasMany(e => e.MonAns)
-                .WithMany(e => e.KhuyenMais)
-                .Map(m => m.ToTable("MonAn_KhuyenMai").MapLeftKey("MaKhuyenMai").MapRightKey("MaMonAn"));
+                .HasMany(e => e.MonAn_KhuyenMai)
+                .WithRequired(e => e.KhuyenMai)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LoaiMon>()
                 .Property(e => e.MaLoaiMon)
@@ -186,6 +186,19 @@ namespace Restaurant.Models
                 .HasMany(e => e.DSGM_MonAn)
                 .WithRequired(e => e.MonAn)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MonAn>()
+                .HasMany(e => e.MonAn_KhuyenMai)
+                .WithRequired(e => e.MonAn)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MonAn_KhuyenMai>()
+                .Property(e => e.MaMonAn)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<MonAn_KhuyenMai>()
+                .Property(e => e.MaKhuyenMai)
+                .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
                 .Property(e => e.MaNhanVien)
