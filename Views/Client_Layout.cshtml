@@ -34,8 +34,8 @@
     <link href="~/Web_Client/css/pagination.css" rel="stylesheet" />
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="~/Web_Client/slick-1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="~/Web_Client/slick-1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Web_Client/jquery/css/jquery.slick.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Web_Client/jquery/css/jquery.slick-theme.css"/>
 
 
     <title>@ViewBag.Title</title>
@@ -64,14 +64,9 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
 
-                        <a href="index.html" class="nav-item nav-link active">Trang chủ</a>
-                        <a href="about.html" class="nav-item nav-link">Khuyến mãi</a>
-                        <a href="booking.html" class="nav-item nav-link">Bài viết</a>
-                        <a href="menu.html" class="nav-item nav-link">Menu</a>
-
                         <a href="~/Home" class="nav-item nav-link active">Trang chủ</a>
-                         <a href="~/Special" class="nav-item nav-link">Khuyến mãi</a> 
-                        <a href="~/Booking" class="nav-item nav-link">Bài viết</a>
+                        <a href="~/Special" class="nav-item nav-link">Khuyến mãi</a>
+                        <a href="~/News/Index" class="nav-item nav-link">Bài viết</a>
                         <a href="~/Menu" class="nav-item nav-link">Menu</a>
 
                         <!-- <a href="menu.html" class="nav-item nav-link">Tin tức</a> -->
@@ -84,7 +79,7 @@
                             </div>
                         </div> -->
                     </div>
-                    <a href="booking.html" class="btn btn-primary py-2 px-4">Đặt bàn</a>
+                    <a href="~/Booking" class="btn btn-primary py-2 px-4">Đặt bàn</a>
                 </div>
             </nav>
 
@@ -174,7 +169,8 @@
 
     <!-- Template Javascript -->
     <script src="~/Web_Client/js/main.js"></script>
-    <script src="../../Web_Client/js/js_news/main.js"></script>
+    <script src="~/Web_Client/jquery/js/jquery.js"></script>
+
 
 </body>
 </html>
