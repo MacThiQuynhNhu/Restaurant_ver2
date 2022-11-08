@@ -27,7 +27,6 @@ namespace Restaurant.Models
         public virtual DbSet<LoaiTopping> LoaiToppings { get; set; }
         public virtual DbSet<MonAn> MonAns { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<Topping> Toppings { get; set; }
 
