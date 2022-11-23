@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Restaurant.Models.Ban>
+
+@{
+    ViewBag.Title = "Danh sách bàn";
+    Layout = "~/Views/Receptionist_Layout.cshtml";
+}
+<div class="container" style="padding-top:120px; min-height:800px">
+    <div class="row">
+        <div class="col-md-12">
+            <h5> Danh sách bàn</h5>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+        <div class="table-responsive">
+            <table class="table border-success">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã bàn
+                        </th>
+                        <th>
+                            Tên bàn
+                        </th>
+                        <th>
+                            Trạng thái bàn
+                        </th>
+                        <th>
+                            #
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaBan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenBan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TrangThai)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "CapNhatBan", new { MaBan = item.MaBan }) |
+                           
+                        </td>
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+    </div>
+</div>

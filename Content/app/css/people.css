@@ -1,0 +1,36 @@
+#all-people{
+    display:none;
+}
+.panel-default .panel-heading, .panel-default .panel-footer {
+    background: #f5f5f5;
+    color:#000;
+}
+.panel-primary .panel-heading, .panel-primary .panel-footer {
+    background: #337ab7;
+    color: #fff;
+}
+.panel-danger .panel-heading, .panel-danger .panel-footer {
+    background: #ebccd1;
+    color: #a94442;
+}
+.panel-success .panel-heading, .panel-success .panel-footer {
+    background: #d6e9c6;
+    color: #3c763d;
+}
+.panel-warning .panel-heading, .panel-warning .panel-footer {
+    background: #faebcc;
+    color: #8a6d3b;
+}
+.panel-info .panel-heading, .panel-info .panel-footer {
+    background: #bce8f1;
+    color: #31708f;
+}
+.panel-collapse .panel-heading, .panel-collapse .panel-footer {
+    background: #bce8f1;
+    color: #31708f;
+}
+
+ul.sub_menu li{
+    
+    list-style-type:none;
+}

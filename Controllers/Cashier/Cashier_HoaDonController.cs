@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,18 @@ namespace Restaurant.Controllers.Cashier
 {
     public class Cashier_HoaDonController : Controller
     {
+        private Model1 db = new Model1();
         // GET: Cashier_HoaDon
-        public ActionResult Index()
+        private Model1 cons = new Model1();
+        public ActionResult DanhSach()
         {
-            return View();
+            using (var con = new Model1())
+            {
+                var model = con.HoaDons.ToList();
+                return View(model);
+            }
         }
+        
+        
     }
 }

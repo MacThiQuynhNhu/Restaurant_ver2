@@ -111,12 +111,13 @@
 
 
 </style>
+
 <div class="container" style="margin-top:120px;min-height:80vh">
     <div class="col-md-12">
         <h5>
             Danh Sách Bài Viết
         </h5>
-        <a class="custom-btn btn-1 text" style="float:right" href="/Manager_BaiViet/ThemMoi">Thêm mới</a>
+        <a class="custom-btn btn-1 text" style="float:right" href="/Manager_BaiViet/Create">Thêm mới</a>
 
     </div>
     <div class="col-md-12">
@@ -132,7 +133,7 @@
                     Hình Ảnh
                 </th>
                 <th>
-                    Link
+                    Nội dung
                 </th>
                 <th>Chức năng</th>
             </tr>
@@ -146,17 +147,18 @@
         @Html.DisplayFor(modelItem => item.TieuDe)
     </td>
     <td>
-        <img src="@item.HinhAnh" width="130px" alt="img">
+        <img src="~/Content/Admin/assets/img/@item.HinhAnh" width="130px" alt="img" id="">
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Link)
+        @Html.DisplayFor(modelItem => item.NoiDung)
     </td>
     <td>
         @Html.ActionLink("Sửa", "CapNhat", new { MaBaiViet = item.MaBaiViet }) |
         @Html.ActionLink("Xóa", "Xoa", new { MaBaiViet = item.MaBaiViet })
     </td>
 
-</tr>            }
+</tr>
+       }
         </table>
 
     </div>

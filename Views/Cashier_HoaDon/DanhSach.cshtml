@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Restaurant.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Thu ngân - Danh sách hóa đơn";
+    Layout = "~/Views/Cashier_Layout.cshtml";
+}
+<div class="container" style="padding-top:120px; min-height:800px">
+    <div class="row">
+        <div class="col-md-12">
+            <h5> Danh sách hóa đơn</h5>
+            <a href="~/Cashier_HoaDon/ThemHoaDon" style="float:right">Thêm mới</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+        <div class="table-responsive">
+            <table class="table border-success">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã hóa đơn
+                        </th>
+                        <th>
+                            Số tiền
+                        </th>
+                        <th>
+                            Thời gian xuất
+                        </th>
+                        <th>
+                            Tình trạng
+                        </th>
+                        <th>
+                            Mã nhân viên
+                        </th>
+                        <th>
+                            Mã gọi món
+                        </th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaHoaDon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SoTien)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ThoiGianXuat)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TinhTrang)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaNhanVien)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaGoiMon)
+                        </td>
+                        
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+    </div>
+</div>

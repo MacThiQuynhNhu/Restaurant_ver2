@@ -1,0 +1,42 @@
+<table border="1">
+<thead>
+ <tr>
+     <th>Header 1</th>
+     <th colspan="2">Header 2</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+     <td>row 1, cell 1</td>
+     <td>row 1, cell 2</td>
+     <td>row 1, cell 3</td>
+ </tr>
+ <tr>
+     <td>row 2, cell 1</td>
+     <td>row 2, cell 2</td>
+     <td>row 2, cell 3</td>
+ </tr>
+ </tbody>
+ </table>
+<script>
+var txt = 'Header 2';
+var column = $('table tr th').filter(function() {
+    return $(this).text() === txt;
+}).index();
+//alert( $('table tr').find('th').eq(1).attr('colspan'));
+var count=$('table tr').find('th').eq(column).attr('colspan');
+//alert(count);
+if(column > -1) {
+    $('table tr').each(function() {
+var trObj=$(this);
+//alert(trObj);
+        $(this).find('td').eq(column).css('background-color', '#ccc');
+
+for(var lpvar=column;lpvar<=count;lpvar++)
+{
+//alert(trObj.find('td').eq(lpvar).text());
+    trObj.find('td').eq(lpvar).css('background-color', '#ccc');
+}
+    });
+}
+</script>

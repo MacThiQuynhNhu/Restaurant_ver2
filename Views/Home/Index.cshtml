@@ -4,6 +4,7 @@
     var list_type = ViewBag.List_Type;
     var list_chef = ViewBag.List_Chef;
     var list_saleoff = ViewBag.List_SaleOff;
+    var list_review = ViewBag.List_Review;
     ViewBag.Title = "Trang chủ";
     Layout = "~/Views/Client_Layout.cshtml";
 }
@@ -18,8 +19,10 @@
         #slide_show > li {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             display: none;
+            width: max-content;
         }
 
             #slide_show > li > img {
@@ -27,8 +30,12 @@
                 width: 400px;
             }
 
+    .title, .sub-title {
+        font-family: auto;
+    }
+
     .container_slide_show {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         text-align: center;
     }
@@ -56,6 +63,11 @@
     .title, .sub-title {
         color: #fff668;
         text-align: center;
+        font-family: 'Nunito",sans-serif !important;
+    }
+
+    h1, h2 { 
+        font-family: 'Nunito",sans-serif !important; 
     }
 
     .sub-title {
@@ -63,7 +75,12 @@
     }
 </style>
 
-
+@section  Header{
+    <a href="~/Home" class="nav-item nav-link active">Trang chủ</a>
+    <a href="~/Special" class="nav-item nav-link">Khuyến mãi</a>
+    <a href="~/News/Index" class="nav-item nav-link">Bài viết</a>
+    <a href="~/Menu" class="nav-item nav-link">Menu</a>
+}
 @section Introduction{
     <div class="container-xxl py-5 bg-dark hero-header mb-5">
         <div class="container my-5 py-5">
@@ -87,9 +104,9 @@
             </div>
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <h1 class="display-3 text-white animated slideInLeft">Ẩm thực Việt Nam</h1>
+                    <h3 class="display-3 text-white animated slideInLeft">Ẩm thực Việt Nam</h3>
                     <p class="text-white animated slideInLeft mb-4 pb-2">Trải nghiệm ẩm thực Việt Nam là hoạt động vô cùng thú vị mà bạn phải thử ít nhất một lần trong đời. Hãy đến với chúng tôi để khám phá món ăn Việt Nam một cách trọn vẹn nhất cùng gia đình và bạn bè nhé!</p>
-                    <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Đặt bàn</a>
+                    <a href="~/Booking/Index" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Đặt bàn</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                     <img class="img-fluid" src="~/Web_Client/img/hero.png" alt="">
@@ -106,38 +123,46 @@
         <div class="row g-4">
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                        <h5>Đầu bếp chuyên nghiệp</h5>
-                        <p>Những đầu bếp của MTARES là những nghệ nhân thực thụ!</p>
-                    </div>
+                    <a class="overlay_link scroll" href="#masterChef">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <h5>Đầu bếp chuyên nghiệp</h5>
+                            <p>Những đầu bếp của MTARES là những nghệ nhân thực thụ!</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                        <h5>Món ăn chất lượng</h5>
-                        <p>Đảm bảo tiêu chí: An toàn - Đậm vị - Đẹp mắt!</p>
-                    </div>
+                    <a class="overlay_link" href="~/Menu">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
+                            <h5>Món ăn chất lượng</h5>
+                            <p>Đảm bảo tiêu chí: An toàn - Đậm vị - Đẹp mắt!</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                        <h5>Đặt bàn Online</h5>
-                        <p>Vài thao tác đơn giản, có ngay bàn tiệc thịnh soạn!</p>
-                    </div>
+                    <a class="overlay_link" href="~/Booking">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
+                            <h5>Đặt bàn Online</h5>
+                            <p>Vài thao tác đơn giản, có ngay bàn tiệc thịnh soạn!</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="service-item rounded pt-3">
-                    <div class="p-4">
-                        <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                        <h5>24/7</h5>
-                        <p>Bạn chỉ cần nhấc điện thoại lên và "alo", MTARES đáp ngay!</p>
-                    </div>
+                    <a class="overlay_link scroll">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                            <h5>24/7</h5>
+                            <p>Bạn chỉ cần nhấc điện thoại lên và "alo", MTARES đáp ngay!</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -193,7 +218,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-primary py-3 px-5 mt-2" href="">Tìm hiểu thêm</a>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="~/News/Index">Tìm hiểu thêm</a>
             </div>
         </div>
     </div>
@@ -204,7 +229,7 @@
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Thực đơn</h5>
-            <h1 class="mb-5">Những lựa chọn phổ biến nhất của thực khách khi đến với chúng tôi</h1>
+            <h2 class="mb-5">Những lựa chọn phổ biến nhất của thực khách khi đến với chúng tôi</h2>
         </div>
         <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
             <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
@@ -217,7 +242,7 @@
                                 <i class="fa fa-coffee fa-2x text-primary"></i>
                                 <div class="ps-3">
                                     <h6 class="mt-n1 mb-0">@type.TenLoaiMon</h6>
-                                    <small class="text-body">@type.MoTa</small>
+                                    <small class="text-b ody">@type.MoTa</small>
                                 </div>
                             </a>
                         }
@@ -304,49 +329,54 @@
         </div>
         <div class="col-md-6 bg-dark d-flex align-items-center">
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Nhấc điện thoại, truy cập https://user.mtares.vn và gọi món, còn lại hãy để MTARES phục vụ bạn!</h5>
+                <h5 class="ff-secondary text-start text-primary fw-normal">Nhấc điện thoại, gọi ngay 012 345 67890, còn lại hãy để MTARES phục vụ bạn!</h5>
+                <hr />
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Hoặc đặt bàn Online</h5>
+                <hr />
+                <a href="~/Booking/Index" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Đặt bàn</a>
+
                 <!-- <h1 class="text-white mb-4">Nhấc điện thoại, truy cập https://user.mtares.vn và gọi món, còn lại hãy để MTARES phục vụ bạn!</h1> -->
                 <!-- <form>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                <label for="name">Your Name</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                <label for="email">Your Email</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating date" id="date3" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                <label for="datetime">Date & Time</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select class="form-select" id="select1">
-                                  <option value="1">People 1</option>
-                                  <option value="2">People 2</option>
-                                  <option value="3">People 3</option>
-                                </select>
-                                <label for="select1">No Of People</label>
-                              </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                <label for="message">Special Request</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                        </div>
-                    </div>
-                </form> -->
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                    <label for="name">Your Name</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                    <label for="email">Your Email</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating date" id="date3" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                    <label for="datetime">Date & Time</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <select class="form-select" id="select1">
+                      <option value="1">People 1</option>
+                      <option value="2">People 2</option>
+                      <option value="3">People 3</option>
+                    </select>
+                    <label for="select1">No Of People</label>
+                  </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                    <label for="message">Special Request</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+            </div>
+        </div>
+    </form> -->
             </div>
         </div>
     </div>
@@ -371,7 +401,7 @@
 </div>
 <!-- Reservation Start -->
 <!-- Team Start -->
-<div class="container-xxl pt-5 pb-3">
+<div id="masterChef" class="container-xxl pt-5 pb-3">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Đội ngũ của chúng tôi</h5>
@@ -388,9 +418,7 @@
                         <h5 class="mb-0">@chef.TenDauBep</h5>
                         <small>@chef.MoTa</small>
                         <div class="d-flex justify-content-center mt-3">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-primary mx-2" href=@chef.DiaChi><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
@@ -406,109 +434,93 @@
             <h5 class="section-title ff-secondary text-center text-primary fw-normal">Nói về MTARES</h5>
             <h1 class="mb-5">Khách hàng nói gì về chúng tôi?</h1>
         </div>
+        
         <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Không gian nhà hàng thoáng mát, sạch sẽ,  các món ăn ngon, trang trí đẹp mắt, nhân viên phục vụ nhiệt tình,...</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/Web_Client/img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
+            @foreach (var review in list_review)
+            {
+                <div class="testimonial-item bg-transparent border rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>@review.BinhLuan</p>
+                    <div class="d-flex align-items-center">
+                        
+                        <div class="ps-3">
+                            <h5 class="mb-1">@review.SoSao sao -  @review.MoTa  </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Không gian nhà hàng thoáng mát, sạch sẽ,  các món ăn ngon, trang trí đẹp mắt, nhân viên phục vụ nhiệt tình,...</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/Web_Client/img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Không gian nhà hàng thoáng mát, sạch sẽ,  các món ăn ngon, trang trí đẹp mắt, nhân viên phục vụ nhiệt tình,...</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/Web_Client/img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-transparent border rounded p-4">
-                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                <p>Không gian nhà hàng thoáng mát, sạch sẽ,  các món ăn ngon, trang trí đẹp mắt, nhân viên phục vụ nhiệt tình,...</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/Web_Client/img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                    <div class="ps-3">
-                        <h5 class="mb-1">Client Name</h5>
-                    </div>
-                </div>
-            </div>
+
+            }
+
+
         </div>
-    </div>
+        </div>
 </div>
 <!-- Testimonial End -->
 <script src="~/Web_Client/jquery/js/jquery.js"></script>
 <script>
     $(document).ready(function () {
         $('#slide_show > li:first').css('display', 'block').addClass('active');
-        var isHoverBtn = false;
+                var isHoverBtn = false;
 
         $('#next_slide').bind('click', function () {
-            runSlide(true);
-        });
+                    runSlide(true);
+                });
 
         $('#prev_slide').bind('click', function () {
-            runSlide(false);
-        });
+                    runSlide(false);
+                });
 
         $('.slide_btn').hover(function () {
-            isHoverBtn = true;
-        }, function () {
-            isHoverBtn = false;
-        });
+                    isHoverBtn = true;
+                }, function () {
+                    isHoverBtn = false;
+                });
 
-        setInterval(function () {
-            if (!isHoverBtn) {
-                runSlide(true);
-            }
-        }, 4000);
+                setInterval(function () {
+                    if (!isHoverBtn) {
+                        runSlide(true);
+                    }
+                }, 4000);
 
 
-        function runSlide(isNext) {
-            var oldItem = $('#slide_show > li.active');
-            var newItem;
+                function runSlide(isNext) {
+                    var oldItem = $('#slide_show > li.active');
+                    var newItem;
 
-            if (isNext) {
-                newItem = oldItem.next();
+                    if (isNext) {
+                        newItem = oldItem.next();
 
-                if (newItem.length === 0) {
-                    newItem = $('#slide_show > li:first');
-                }
-            } else {
-                newItem = oldItem.prev();
+                        if (newItem.length === 0) {
+                            newItem = $('#slide_show > li:first');
+                        }
+                    } else {
+                        newItem = oldItem.prev();
 
-                if (newItem.length === 0) {
-                    newItem = $('#slide_show > li:last');
-                }
-            }
+                        if (newItem.length === 0) {
+                            newItem = $('#slide_show > li:last');
+                        }
+                    }
 
-            if (newItem.length === 0) {
-                newItem = $('#slide_show > li:eq(0)');
-            }
+                    if (newItem.length === 0) {
+                        newItem = $('#slide_show > li:eq(0)');
+                    }
 
-            oldItem.fadeOut(function () {
+                    oldItem.fadeOut(function () {
                 $(this).removeClass('active');
-            });
+                    });
 
-            newItem.fadeIn(function () {
+                newItem.fadeIn(function () {
                 $(this).addClass('active');
-            });
+                });
         }
+        // Link đến các trang tương ứng
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        })
     })
-    //khai báo biến slideIndex đại diện cho slide hiện tại
 
 </script>

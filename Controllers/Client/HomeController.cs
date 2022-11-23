@@ -19,6 +19,7 @@ namespace Restaurant.Controllers.Client
             ViewBag.List_Type = db.LoaiMons.ToList();
             ViewBag.List_Chef = db.DauBeps.ToList();            
             ViewBag.List_SaleOff = db.KhuyenMais.ToList();
+            ViewBag.List_Review = db.DanhGias.ToList();
             return View();
         }
     }

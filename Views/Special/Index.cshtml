@@ -1,172 +1,131 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Client_Layout.cshtml";
+﻿@*@model IPagedList<Restaurant.Models.khuyenmai>
+    @using PagedList.Mvc;
+    @using PagedList;*@
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Client_Layout.cshtml"; }
+@using Restaurant.Models;
+@section  Header{
+    <a href="~/Home" class="nav-item nav-link">Trang chủ</a>
+    <a href="~/Special" class="nav-item nav-link active">Khuyến mãi</a>
+    <a href="~/News/Index" class="nav-item nav-link">Bài viết</a>
+    <a href="~/Menu" class="nav-item nav-link">Menu</a>
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+<style>
+    .food_section .container .heading_content {
+        display: flex;
+        align-items: center;
+        max-width: 60%;
+        margin-top: 32px;
+        font-weight: bold;
+    }
 
-    <!-- title -->
-    <title>News</title>
+    .food_section .box-news .img-box-news {
+        border-radius: 0;
+        height: auto;
+        padding: 0;
+        background-color: #222831;
+    }
 
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="~/Web_Client/assets/img/favicon.png">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/all.min.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="~/Web_Client/assets/bootstrap/css/bootstrap.min.css">
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/owl.carousel.css">
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/magnific-popup.css">
-    <!-- animate css -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/animate.css">
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/meanmenu.min.css">
-    <!-- main style -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/main.css">
-    <!-- responsive -->
-    <link rel="stylesheet" href="~/Web_Client/assets/css/responsive.css">
+        .food_section .box-news .img-box-news img {
+            max-height: initial;
+        }
 
-    <!-- latest news -->
-    <div class="latest-news mt-150 mb-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-4"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">Fall in love with the fresh orange</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-5"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">Why the berries always look delecious</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-latest-news">
-                        <a href="single-news.html"><div class="latest-news-bg news-bg-6"></div></a>
-                        <div class="news-text-box">
-                            <h3><a href="single-news.html">Love for fruits are genuine of John Doe</a></h3>
-                            <p class="blog-meta">
-                                <span class="author"><i class="fas fa-user"></i> Admin</span>
-                                <span class="date"><i class="fas fa-calendar"></i> 27 December, 2018</span>
-                            </p>
-                            <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.</p>
-                            <a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    .food_section .box-news .detail-box {
+        display: flex;
+        flex-direction: column;
+    }
 
-            <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="pagination-wrap">
-                                <ul>
-                                    <li><a href="#">Prev</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a class="active" href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">Next</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        .food_section .box-news .detail-box a {
+            font-size: 18px;
+            font-family: "Heebo",sans-serif;
+        }
+
+        .food_section .box-news .detail-box span {
+            font-size: 25px;
+            font-family: "Heebo",sans-serif;
+            font-weight: bold;
+        }
+
+        .food_section .box-news .detail-box .tenmon {
+            font-size: 20px;
+            font-family: "Heebo",sans-serif;
+            font-weight: bold;
+            text-align: center;
+            color: #FEA116;
+        }
+
+
+        .food_section .box-news .detail-box p {
+            display: block;
+            display: -webkit-box;
+            height: auto;
+            font-size: 14px;
+            line-height: 1.3;
+            -webkit-line-clamp: 3; /* s? d?ng hi?n th? */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+            text-align: justify;
+        }
+</style>
+
+@section Introduction{
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Khuyến mãi</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Khuyến mãi</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+<section class="food_section layout_padding">
+    <div class="container">
+
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (sieukhuyenmai item in Model)
+                {
+
+    <div class="col-sm-6 col-lg-4 all pizza wow fadeInUp" style="display: flex;">
+        <div class="box box-news">
+            <div>
+                <div class="img-box img-box-news">
+                    <img src="@item.monan.HinhAnh" alt="">
+                </div>
+
+                <div class="detail-box">
+
+                    <p> <span class="tenmon">@item.monan.TenMonAn</span> <br />giảm đến <span>@item.khuyenmai.MucKhuyenMai% </span> </p>
+
+                    <p>
+                        Từ ngày @item.khuyenmai.ThoiGianBatDau
+                        <br />
+                        đến ngày @item.khuyenmai.ThoiGianKetThuc.
+                    </p>
+
+
+
+                    <a href="/Special/subSpecial/@item.khuyenmai.MaKhuyenMai" style="align-self: flex-end;">Chi tiết</a>
                 </div>
             </div>
         </div>
+    </div>}
+            </div>
+        </div>
+
+
+        @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = Request.QueryString["search"] }))*@
+
+        @*<div class="btn-box">
+                <a href="">
+                    Xem thêm
+                </a>
+            </div>*@
     </div>
-    <!-- end latest news -->
-    <!-- jquery -->
-    <script src="~/Web_Client/assets/js/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap -->
-    <script src="~/Web_Client/assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- count down -->
-    <script src="~/Web_Client/assets/js/jquery.countdown.js"></script>
-    <!-- isotope -->
-    <script src="~/Web_Client/assets/js/jquery.isotope-3.0.6.min.js"></script>
-    <!-- waypoints -->
-    <script src="~/Web_Client/assets/js/waypoints.js"></script>
-    <!-- owl carousel -->
-    <script src="~/Web_Client/assets/js/owl.carousel.min.js"></script>
-    <!-- magnific popup -->
-    <script src="~/Web_Client/assets/js/jquery.magnific-popup.min.js"></script>
-    <!-- mean menu -->
-    <script src="~/Web_Client/assets/js/jquery.meanmenu.min.js"></script>
-    <!-- sticker js -->
-    <script src="~/Web_Client/assets/js/sticker.js"></script>
-    <!-- main js -->
-    <script src="~/Web_Client/assets/js/main.js"></script>
-
-    </body>
-</html>
-
+</section>

@@ -1,0 +1,59 @@
+﻿@model Restaurant.Models.Ban
+
+@{
+    ViewBag.Title = "Thêm bàn";
+    Layout = "~/Views/Waiter_Layout.cshtml";
+}
+
+
+<div class="container" style="padding-top:120px; min-height:800px">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Thêm bàn</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label> Mã bàn</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.MaBan, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MaBan, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Tên bàn</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.TenBan, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenBan, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Trạng thái bàn</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

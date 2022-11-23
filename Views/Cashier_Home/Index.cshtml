@@ -1,8 +1,67 @@
-﻿
-@{
-    ViewBag.Title = "Thu ngân - Trang chủ";
-    Layout = "~/Views/Cashier_Layout.cshtml";
-}
+﻿@model Restaurant.Models.DanhSachGoiMon
+@{ var list_goimon = ViewBag.List_DanhSachGoiMon;
+                ViewBag.Title = "Thu ngân - Thêm hóa đơn";
+                Layout = "~/Views/Cashier_Layout.cshtml"; }
 
-<h2>Index</h2>
+<div class="container" style="padding-top:120px; min-height:800px">
+    <div class="row">
+        <div class="col-md-12">
+            <h5> Danh sách gọi món chưa thanh toán</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
 
+        </div>
+        <div class="table-responsive">
+            <table class="table border-success">
+                <thead>
+                    <tr>
+                        <th>
+                            Mã danh sách gọi món
+                        </th>
+                        <th>
+                            Thời gian
+                        </th>
+                        <th>
+                            Tình trạng
+                        </th>
+                        <th>
+                            Tên khách hàng
+                        </th>
+
+                        <th>
+                            Thêm hóa đơn
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in list_goimon)
+                {
+    <tr>
+        <td>
+            @item.MaGoiMon
+        </td>
+        <td>
+            @item.ThoiGian
+        </td>
+        <td>
+            @item.TinhTrang
+        </td>
+
+        <td>
+            @item.TinhTrang
+        </td>
+        <td>
+            @item.MaKhachHang
+        </td>
+        <td>
+            @Html.ActionLink("Thêm hóa đơn", "ThemHoaDon")
+        </td>
+    </tr>}
+
+
+            </table>
+        </div>
+    </div>
+</div>
