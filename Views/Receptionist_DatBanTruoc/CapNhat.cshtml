@@ -98,7 +98,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Giờ</label>
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Gio, new { htmlAttributes = new { @class = "form-control" } })
+                        <input class="form-control" name="Gio" value="@Html.Raw(DateTime.Now.ToString("HH:mm:ss").Replace(' ','T'))" type="time" />
                         @Html.ValidationMessageFor(model => model.Gio, "", new { @class = "text-danger" })
                     </div>
                 </div>

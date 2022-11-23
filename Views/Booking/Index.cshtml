@@ -2,6 +2,13 @@
 @{ ViewBag.Title = "Index";
     Layout = "~/Views/Client_Layout.cshtml"; }
 
+@section  Header{
+    <a href="~/Home" class="nav-item nav-link">Trang chủ</a>
+    <a href="~/Special" class="nav-item nav-link">Khuyến mãi</a>
+    <a href="~/News/Index" class="nav-item nav-link">Bài viết</a>
+    <a href="~/Menu" class="nav-item nav-link">Menu</a>
+}
+
 @section Introduction{
     <div class="container-xxl py-5 bg-dark hero-header mb-5">
         <div class="container text-center my-5 pt-5 pb-4">
@@ -21,9 +28,7 @@
     <div class="row g-0">
         <div class="col-md-6">
             <div class="video">
-                <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                    <span></span>
-                </button>
+
             </div>
         </div>
         <div class="col-md-6 bg-dark d-flex align-items-center">

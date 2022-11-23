@@ -1,6 +1,7 @@
 ﻿using Restaurant.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,6 +24,31 @@ namespace Restaurant.Controllers.Manager
         [HttpPost]
         public ActionResult ThemMoi(BaiViet model)
         {
+            try
+            {
+
+                //ViewBag.MaNhom = new SelectList(db.NHOMs, "MaNhom", "TenNhom");
+
+                var item = new BaiViet();
+                if (model.ImageUpload != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(model.ImageUpload.FileName);
+                    string extension = Path.GetExtension(model.ImageUpload.FileName);
+                    model.HinhAnh = "~/Web_Client/img/img1/" + fileName + extension;
+                    model.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/Web_Client/img/img1/"), fileName));
+                }
+               // var result = item.Insert(model);
+                return RedirectToAction("Index");
+
+
+               
+                return View();
+            }
+
+            catch
+            {
+                return View();
+            }
             Model1 db = new Model1();
             //thêm mới bản ghi
             db.BaiViets.Add(model);
