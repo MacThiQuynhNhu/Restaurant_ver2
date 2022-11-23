@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Restaurant.Models.KhachHang>
+﻿@model IEnumerable<Restaurant.Models.KhachHang>
 @{ ViewBag.Title = "Tiếp tân - Khách hàng";
                 Layout = "~/Views/Receptionist_Layout.cshtml"; }
 
@@ -110,6 +109,44 @@
     /* btn them moi*/
 
 </style>
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/Receptionist_Home/Index">
+                <i class="bi bi-grid"></i>
+                <span>Trang chủ</span>
+            </a>
+        </li> @*End Dashboard Nav*@
+
+        <li class="nav-item">
+            <a class="nav-link " href="/Receptionist_KhachHang/Index">
+                <i class="bi bi-person"></i>
+                <span>Khách hàng</span>
+            </a>
+        </li> @*End Profile Page Nav*@
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/Receptionist_DatBanTruoc/Index">
+                <i class="bi bi-person"></i>
+                <span>Đặt bàn trước</span>
+            </a>
+        </li> <!--E-->@*nd Profile Page Nav*@
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="/Receptionist_DatBanTruoc/Index">
+                <i class="bi bi-person"></i>
+                <span>Trạng thái bàn</span>
+            </a>
+        </li> @*End Profile Page Nav*@
+
+       
+
+    </ul>
+
+</aside>
+
 <div class="container" style="margin-top:120px;min-height:80vh">
     <div class="col-md-12">
         <h5>
@@ -169,4 +206,3 @@
     </div>
 
 </div>
-

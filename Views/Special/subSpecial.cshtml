@@ -1,0 +1,222 @@
+﻿@model Restaurant.Models.KhuyenMai
+@{ ViewBag.Title = "subSpecial";
+                Layout = "~/Views/Client_Layout.cshtml";
+                var detail = (Restaurant.Models.KhuyenMai)ViewBag.khuyenmai; }
+
+<style>
+        /*
+    * Design by Robert Mayer:https://goo.gl/CJ7yC8
+    *
+    *I intentionally left out the line that was supposed to be below the subheader simply because I don't like how it looks.
+    *
+    * Chronicle Display Roman font was substituted for similar fonts from Google Fonts.
+    */
+
+        body {
+            /* background-color: #fdf1ec;*/
+        }
+
+        .wrapper {
+            height: 420px;
+            width: 654px;
+            margin: 50px auto;
+            border-radius: 7px 7px 7px 7px;
+            /* VIA CSS MATIC https://goo.gl/cIbnS */
+            -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            float: left;
+            height: 420px;
+            width: 327px;
+            margin: inherit;
+        }
+
+            .product-img img {
+                border-radius: 7px 0 0 7px;
+            }
+
+        .product-info {
+            float: left;
+            height: 420px;
+            width: 327px;
+            border-radius: 0 7px 10px 7px;
+            background-color: #ffffff;
+        }
+
+        .product-text {
+            height: 300px;
+            width: 327px;
+        }
+
+            .product-text h1 {
+                margin: 0 0 0 38px;
+                padding-top: 52px;
+                font-size: 34px;
+                color: #474747;
+            }
+
+            .product-text h1,
+            .product-price-btn p {
+                font-family: 'Bentham', serif;
+            }
+
+            .product-text h2 {
+                margin: 0 0 47px 38px;
+                font-size: 13px;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: #d2d2d2;
+                letter-spacing: 0.2em;
+            }
+
+            .product-text p {
+                /*   height: 50px;*/
+                margin: 0 0 0 38px;
+                font-family: 'Playfair Display', serif;
+                color: #000000;
+                line-height: 1.7em;
+                font-size: 15px;
+                font-weight: lighter;
+                overflow: hidden;
+            }
+
+        .product-price-btn {
+            height: 103px;
+            width: 327px;
+            margin-top: 17px;
+            position: relative;
+        }
+
+            .product-price-btn p {
+                display: inline-block;
+                position: absolute;
+                top: -13px;
+                height: 50px;
+                font-family: 'Trocchi', serif;
+                margin: 0 0 0 38px;
+                font-size: 28px;
+                font-weight: lighter;
+                color: #474747;
+            }
+
+        span {
+            display: inline-block;
+            height: 50px;
+            font-family: 'Suranna', serif;
+            font-size: 34px;
+        }
+
+        .product-price-btn button {
+            float: right;
+            display: inline-block;
+            height: 50px;
+            width: 176px;
+            margin: 0 40px 0 16px;
+            box-sizing: border-box;
+            border: transparent;
+            border-radius: 60px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #000000;
+            background-color: #9cebd5;
+            cursor: pointer;
+            outline: none;
+            color: gold;
+        }
+
+            .product-price-btn button:hover {
+                background-color: #79b0a1;
+            }
+</style>
+
+
+
+@section Introduction{
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Chi tiết</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="/News/Index">Khuyến mãi</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
+                    <li class="breadcrumb-item text-white active" aria-current="page">Chi tiết</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+<html lang="en">
+
+<head>
+    <title>@detail.DoiTuongApDung</title>
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+</head>
+
+
+<body>
+
+</body>
+
+</html>
+<div class="container" style="display: flex; flex-direction: row; align-items: center;">
+    @*<a @detail.MaKhuyenMai " class="link-prev"><i style="font-size: 48px;" class="fa fa-solid fa-chevron-circle-left"></i></a>*@
+    <div class="wrapper">
+        <div class="product-img">
+            <img src="~/Web_Client/img/launuong.jpg" height="300" width="327">
+        </div>
+        <div class="product-info">
+            <div class="product-text">
+                <br />
+                <br />
+                <p>Đối tượng áp dụng chương trình: <br />@detail.DoiTuongApDung với mức hóa đơn từ @detail.HoaDonToiThieu VNĐ</p>
+                <p>Thời gian bắt đầu: @detail.ThoiGianBatDau</p>
+                <p>Thời gian kết thúc: @detail.ThoiGianKetThuc</p>
+
+                <p>Mô tả: @detail.Mota</p>
+
+            </div>
+            <div class="product-price-btn">
+
+                <p><span style="color:gold"> Giảm tới @detail.MucKhuyenMai%</span></p>
+
+                @*<button type="button">buy now</button>*@
+            </div>
+        </div>
+    </div>
+    @*<a href="@detail.MaKhuyenMai" class="link-next"><i style="font-size: 48px;" class="fa fa-solid fa-chevron-circle-right"></i></a>*@
+</div>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/Web_Client/slick-1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="/Web_Client/slick-1.8.1/slick/slick.js"></script>
+
+<script>
+    let currentId = @detail.MaKhuyenMai.Substring(4, 1);
+    var sumId = @detail.MaKhuyenMai.Count();
+    console.log(sumId)
+
+    const prevBtn = document.querySelector('.link-prev')
+    const nextBtn = document.querySelector('.link-next')
+
+    if (currentId == 1) {
+        prevBtn.style.visibility = 'hidden';
+    }
+
+    if (currentId == 2) {
+        nextBtn.style.visibility = 'hidden';
+    }
+    prevBtn.addEventListener('click', function () {
+        prevBtn.setAttribute('href', currentId - 1)
+    })
+    nextBtn.addEventListener('click', function () {
+        nextBtn.setAttribute('href', currentId + 1)
+    })
+</script>
