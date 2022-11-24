@@ -15,7 +15,7 @@ using System.Text;
 using System.Net;
 using System.Threading.Tasks;
 using System.Data.Entity;
-
+using Restaurant.Models.Function;
 namespace Restaurant.Controllers.Manager
 {
     public class Manager_DauBepController : Controller
@@ -30,6 +30,8 @@ namespace Restaurant.Controllers.Manager
                 return View(model);
             }
         }
+        
+
         [HttpPost]
         public JsonResult getDetail(string id)
         {

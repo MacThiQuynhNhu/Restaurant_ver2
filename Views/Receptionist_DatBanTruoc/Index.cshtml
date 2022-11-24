@@ -1,8 +1,35 @@
 ﻿@model IEnumerable<Restaurant.Models.BanDatTruoc>
 
-@{ ViewBag.Title = "Đặt bàn trước";
-                Layout = "~/Views/Receptionist_Layout.cshtml"; }
+@{ ViewBag.Title = "Tiếp tân - Đặt bàn trước";
+    Layout = "~/Views/Receptionist_Layout.cshtml"; }
+@section Header{
+    <ul class="sidebar-nav" id="sidebar-nav">
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Receptionist_Home/Index">
+                <i class="bi bi-grid"></i>
+                <span>Trang chủ</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link" href="~/Receptionist_DatBanTruoc/Index">
+                <i class="bi bi-person"></i>
+                <span>Đặt bàn trước</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Receptionist_KhachHang/Index">
+                <i class="bi bi-person"></i>
+                <span>Khách hàng</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+        <!-- End Login Page Nav -->
+
+    </ul>
+}
 <style>
     .custom-btn {
         width: 130px;
@@ -113,7 +140,7 @@
 <div class="container" style="margin-top:120px;min-height:80vh">
     <div class="col-md-12">
         <h5>
-            Danh Sách bàn đặt trước
+            Danh sách bàn đặt trước
         </h5>
         <a class="custom-btn btn-1 text" style="float:right" href="/Receptionist_DatBanTruoc/ThemMoi">Thêm mới</a>
     </div>
@@ -131,9 +158,6 @@
                 </th>
                 <th>
                     Giờ
-                </th>
-                <th>
-                    Mã nhân viên
                 </th>
                 <th>
                     Số lượng
@@ -162,9 +186,6 @@
         @item.Gio
     </td>
     <td>
-        @item.MaNhanVien
-    </td>
-    <td>
         @item.SoLuong
     </td>
     <td>
@@ -175,7 +196,8 @@
         @Html.ActionLink("Xóa", "Xoa", new { idMaKhachHang = item.MaKhachHang })
     </td>
 
-</tr>            }
+</tr>
+       }
         </table>
 
     </div>

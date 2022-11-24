@@ -4,21 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Restaurant.Models;
 
 namespace Restaurant.Controllers.Receptionist
 {
     public class Receptionist_DatBanTruocController : Controller
     {
-
+        Model1 con = new Model1();
         public ActionResult Index()
         {
-            Model1 db = new Model1();
-            List<BanDatTruoc> danhsachbandattruoc = db.BanDatTruocs.ToList();
+            List<BanDatTruoc> danhsachbandattruoc = con.BanDatTruocs.ToList();
             return View(danhsachbandattruoc);
         }
         public ActionResult ThemMoi()
         {
-            return View(new BanDatTruoc());
+            ViewBag.List_KhachHang = con.KhachHangs.ToList();
+            ViewBag.List_Ban = con.Bans.Where(item => item.TrangThai == "Trống");
+            return View();
         }
         [HttpPost]
         public ActionResult ThemMoi(BanDatTruoc model)

@@ -13,8 +13,15 @@ namespace Restaurant.Controllers.Manager
 
         public ActionResult Index()
         {
+            Model1 db = new Model1();
+            List<NhanVien> danhsachnhanvien = db.NhanViens.ToList();
+            return View(danhsachnhanvien);
+        }
+        public ActionResult DangKi()
+        {
             return View();
         }
+        
         [HttpPost]
         public ActionResult DangKi(NhanVien model, int GioiTinh)
         {

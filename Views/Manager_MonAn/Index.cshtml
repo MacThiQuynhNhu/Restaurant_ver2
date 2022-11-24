@@ -83,7 +83,7 @@
                                                 <td style="text-align:center">@item.Gia</td>
                                                 <td class="text-center">@item.DonViTinh</td>
                                                 <td style="text-align:center">@item.MoTa</td>
-                                                @*<td style="text-align:center"><img src="@item.HinhAnh" /></td>*@
+                                            @*<td style="text-align:center"><img src="~/Content/Admin/assets/img/@item.HinhAnh" width="30px" alt="img" /></td>*@
                                                 <td style="text-align:center">@item.ThoiGianRaMat</td>
 
                                                 <td>
@@ -112,6 +112,7 @@
 
 </main>
 
+<!--
 <div id="addNewFood" style="margin-left: 0px; overflow-y: hidden;" class="modal fade" id="report" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style=" left:7%;top:-3%; width: 70%; height: 800px;" role="document">
         <div class="modal-content">
@@ -168,6 +169,86 @@
         </div>
     </div>
 </div>
+
+-->
+<div id="addNewFood" style="margin-left: 0px; overflow-y: hidden;" class="modal fade" id="report" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style=" left:7%;top:-3%; width: 70%; height: 800px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <form action=" ~/Manager_MonAn/Create" method="post" enctype="multipart/form-data">
+                    <h5 class="card-title">Thêm/Sửa BaiViet</h5>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Mã món ăn</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="code" placeholder="Bai Viet" name="MaMonAn">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Tên món ăn</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="code" placeholder="Ten Mon AN" name="TenMonAn">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Gia</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Tieu de" name="Gia">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputDonVi" class="col-sm-2 col-form-label">DonViTinh</label>
+                        <div class="col-sm-10">
+                            <select name="DonViTinh">
+                                <option disabled="disabled" selected="selected"></option>
+                                <option value="VNĐ">VNĐ</option>
+                                <option value="Dollar">Dollar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">MoTa</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Mo Ta" name="MoTa">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputNumber" class="col-sm-2 col-form-label">Hình ảnh</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" name="UrlAnh" type="file" id="formFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputLoaiMon" class="col-sm-2 col-form-label">Loại Món</label>
+                        <div class="col-sm-10">
+                            <select name="MaLoaiMon">
+                                <option disabled="disabled" selected="selected"></option>
+                                <option value="LM001">Thịt</option>
+                                <option value="LM002">Hải sản</option>
+                                <option value="LM003">Đồ uống</option>
+                                <option value="LM004">Khai vị</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Xác nhận</label>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
 
 <div id="detailModal" style="margin-left: 0px; overflow-y: hidden;" class="modal fade" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style=" left:7%;top:-3%; width: 70%; height: 800px;" role="document">

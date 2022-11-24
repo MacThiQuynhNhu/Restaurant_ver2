@@ -1,6 +1,9 @@
 ﻿@model Restaurant.Models.HoaDon
 
-@{ ViewBag.Title = "ThemHoaDon";
+@{ 
+    var list_dsgm = ViewBag.List_DanhSachGoiMon;
+    var list_nhanvien = ViewBag.List_NhanVien;
+    ViewBag.Title = "Thêm hóa đơn";
                 Layout = "~/Views/Cashier_Layout.cshtml"; }
 
 
@@ -29,7 +32,21 @@
                             @Html.ValidationMessageFor(model => model.MaHoaDon, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                <div class="form-group">
+                    <label> Mã danh sách gọi món</label>
+                    <div class="col-md-10">
+                        <select name="MaGoiMon">
+                            @foreach (var item in list_dsgm)
+                            {
+                                <option value=@item.MaGoiMon>@item.MaGoiMon</option>
+                            }
+                        </select>
+                        <div class="select-dropdown"></div>
+                    </div>
+                </div>
+                <div class="rs-select2 js-select-simple select--no-search">
 
+                </div>
                     <div class="form-group">
                         <label> Số tiền</label>
                         <div class="col-md-10">
@@ -46,33 +63,25 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label> Tình trạng</label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TinhTrang, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TinhTrang, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                
 
                     <div class="form-group">
                         <label> Mã nhân viên</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MaNhanVien, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
+                        <select name="MaNhanVien">
+                            @foreach (var item in list_nhanvien)
+                            {
+                    <option value=@item.MaNhanVien>@item.MaNhanVien</option>}
+                        </select>
+                        <div class="select-dropdown"></div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label> Mã gọi món</label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.MaGoiMon, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.MaGoiMon, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
+                        <input type="submit" value="Thêm" class="btn btn-default" />
                         </div>
                     </div>
                 </div>            }

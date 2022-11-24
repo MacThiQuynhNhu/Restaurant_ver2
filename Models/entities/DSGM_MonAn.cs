@@ -8,12 +8,6 @@ namespace Restaurant.Models
 
     public partial class DSGM_MonAn
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DSGM_MonAn()
-        {
-            GoiToppings = new HashSet<GoiTopping>();
-        }
-
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
@@ -33,8 +27,5 @@ namespace Restaurant.Models
         public virtual DanhSachGoiMon DanhSachGoiMon { get; set; }
 
         public virtual MonAn MonAn { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GoiTopping> GoiToppings { get; set; }
     }
 }

@@ -36,9 +36,13 @@
 
                     <div class="form-group">
                         <label> Trạng thái bàn</label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+                       <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="TrangThai">
+                                            <option value="Trống">Trống</option>
+                                            <option value="Đã đặt trước">Đã đặt trước</option>
+                                            <option value="Đang sử dụng">Đang sử dụng</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
                         </div>
                     </div>
 

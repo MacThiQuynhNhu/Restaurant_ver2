@@ -1,7 +1,9 @@
 ﻿@model Restaurant.Models.BaiViet
 
 @{ ViewBag.Title = "Cập nhật";
-    Layout = "~/Views/Manager_Layout.cshtml"; }
+    Layout = "~/Views/Manager_Layout.cshtml";
+    var detail = ViewBag.capnhat;
+}
 <style>
     .custom-btn {
         width: 130px;
@@ -52,77 +54,7 @@
                 box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5), -4px -4px 6px 0 rgba(116, 125, 136, .2), inset -4px -4px 6px 0 rgba(255,255,255,.5), inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
             }
 </style>
-<aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-        <li class="nav-item">
-            <a class="nav-link collapsed " href="/Manager_Home/Index">
-                <i class="bi bi-grid"></i>
-                <span>Trang chủ</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/Manager_BaiViet/Index">
-                <i class="bi bi-grid"></i>
-                <span>Trạng thái bàn</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="dashboard.html">
-                <i class="bi bi-person"></i>
-                <span>Nhân viên</span>
-            </a>
-
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="tieptan.html">
-                <i class="bi bi-envelope"></i>
-                <span>Món ăn</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="tieptan.html">
-                <i class="bi bi-envelope"></i>
-                <span>Đầu bếp</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link " href="tieptan.html">
-                <i class="bi bi-envelope"></i>
-                <span>Khuyến mãi</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/Manager_BaiViet/Index">
-                <i class="bi bi-envelope"></i>
-                <span>Bài viết</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="tieptan.html">
-                <i class="bi bi-envelope"></i>
-                <span>Tài khoản</span>
-            </a>
-        </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span>Thông tin cá nhân</span>
-            </a>
-        </li><!-- End Login Page Nav -->
-
-    </ul>
-
-</aside><!-- End Sidebar-->
 <div class="container" style="margin-top:120px;min-height:80vh">
     <div class="col-md-12">
         <h5>
@@ -137,7 +69,6 @@
 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    <h4>BaiViet</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="form-group">
@@ -157,17 +88,19 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-2">Hình Ảnh </label>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.HinhAnh, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+                        <div class="widget-body bordered-bottom col-lg-12" style="margin-left: 1rem;">
+                            <label class="col-lg-4 control-label padd" style="margin-top:0.8rem; margin-left:-23px">Chọn ảnh</label>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="file" value=""/>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Link </label>
+                        <label class="control-label col-md-2">NoiDung </label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
                         </div>
                     </div>
 

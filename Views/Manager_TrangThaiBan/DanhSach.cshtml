@@ -29,7 +29,7 @@
                             Trạng thái bàn
                         </th>
                         <th>
-                            #
+                            Tác vụ
                         </th>
                         <th></th>
                     </tr>
@@ -47,8 +47,8 @@
                             @Html.DisplayFor(modelItem => item.TrangThai)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "CapNhatBan", new { MaBan = item.MaBan }) |
-                            @Html.ActionLink("Delete", "XoaBan", new { MaBan = item.MaBan })
+                            @Html.ActionLink("Cập nhật", "CapNhatBan", new { MaBan = item.MaBan }) |
+                            @Html.ActionLink("Xóa", "XoaBan", new { MaBan = item.MaBan })
                         </td>
                     </tr>
                 }

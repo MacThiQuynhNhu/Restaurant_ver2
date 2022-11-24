@@ -12,6 +12,7 @@ namespace Restaurant.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
+            BanDatTruocs = new HashSet<BanDatTruoc>();
             DanhSachGoiMons = new HashSet<DanhSachGoiMon>();
         }
 
@@ -29,7 +30,8 @@ namespace Restaurant.Models
 
         public int? SoLanGoiMon { get; set; }
 
-        public virtual BanDatTruoc BanDatTruoc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BanDatTruoc> BanDatTruocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhSachGoiMon> DanhSachGoiMons { get; set; }

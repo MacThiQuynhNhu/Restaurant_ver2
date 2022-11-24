@@ -2098,7 +2098,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Cashier\Cashier_HoaDonController.cs" />
     <Compile Include="Controllers\Cashier\Cashier_HomeController.cs" />
-    <Compile Include="Controllers\Cashier\Cashier_ThongKeController.cs" />
     <Compile Include="Controllers\Client\BookingController.cs" />
     <Compile Include="Controllers\Client\HomeController.cs" />
     <Compile Include="Controllers\Client\MenuController.cs" />
@@ -2116,11 +2115,11 @@
     <Compile Include="Controllers\Receptionist\Receptionist_DatBanTruocController.cs" />
     <Compile Include="Controllers\Receptionist\Receptionist_HomeController.cs" />
     <Compile Include="Controllers\Receptionist\Receptionist_KhachHangController.cs" />
-    <Compile Include="Controllers\Receptionist\Receptionist_TrangThaiBanController.cs" />
     <Compile Include="Controllers\Waiter\Waiter_HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BanDat_KhachHang.cs" />
     <Compile Include="Models\entities\BaiViet.cs" />
     <Compile Include="Models\entities\Ban.cs" />
     <Compile Include="Models\entities\BanDatTruoc.cs" />
@@ -2129,21 +2128,21 @@
     <Compile Include="Models\entities\DauBep.cs" />
     <Compile Include="Models\entities\DSGM_MonAn.cs" />
     <Compile Include="Models\Function\account.cs" />
+    <Compile Include="Models\Function\BaiVietF.cs" />
+    <Compile Include="Models\Function\DauBepF.cs" />
+    <Compile Include="Models\Function\MonAnF.cs" />
     <Compile Include="Models\Function\NguoiDungF.cs" />
-    <Compile Include="Models\entities\GoiTopping.cs" />
+    <Compile Include="Models\Function\NhanVienF.cs" />
+    <Compile Include="Models\Function\sieukhuyenmai.cs" />
     <Compile Include="Models\entities\HoaDon.cs" />
     <Compile Include="Models\entities\KhachHang.cs" />
     <Compile Include="Models\entities\KhuyenMai.cs" />
     <Compile Include="Models\entities\LoaiMon.cs" />
-    <Compile Include="Models\entities\LoaiTopping.cs" />
     <Compile Include="Models\entities\Model1.cs" />
     <Compile Include="Models\entities\MonAn.cs" />
     <Compile Include="Models\entities\MonAn_KhuyenMai.cs" />
     <Compile Include="Models\entities\NhanVien.cs" />
     <Compile Include="Models\entities\NhomNguoiDung.cs" />
-    <Compile Include="Models\Function\NhanVienF.cs" />
-    <Compile Include="Models\Function\sieukhuyenmai.cs" />
-    <Compile Include="Models\entities\Topping.cs" />
     <Compile Include="Models\Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Security\CustomPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2678,7 +2677,6 @@
     <Content Include="Views\Manager_TrangThaiBan\CapNhatBan.cshtml" />
     <Content Include="Views\Cashier_HoaDon\DanhSach.cshtml" />
     <Content Include="Views\Cashier_HoaDon\ThemHoaDon.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Manager_DauBep\Index.cshtml" />
     <Content Include="Views\Receptionist_TrangThaiBan\Index.cshtml" />
     <Content Include="Views\Receptionist_TrangThaiBan\CapNhatBan.cshtml" />
@@ -2688,6 +2686,12 @@
     <Content Include="Views\Manager_SignUp\Index.cshtml" />
     <Content Include="Views\Manager_LoaiMonAn\DanhSach.cshtml" />
     <Content Include="Views\Manager_MonAn\Index.cshtml" />
+    <Content Include="Views\Manager_SignUp\ThemMoi.cshtml" />
+    <Content Include="Views\Manager_SignUp\DangKi.cshtml" />
+    <Content Include="Views\Manager_BaiViet\Create.cshtml" />
+    <Content Include="Views\Manager_MonAn\Create.cshtml" />
+    <Content Include="Views\Booking\DatNgay.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

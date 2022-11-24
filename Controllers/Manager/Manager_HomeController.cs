@@ -11,7 +11,7 @@ namespace Restaurant.Controllers.Manager
     public class Manager_HomeController : Controller
     {
         // GET: Manager_Home
-        [CustomAuthorize(Roles = "Quản lý")]
+        //[CustomAuthorize(Roles = "Quản lý")]
         //[AllowAnonymous(Roles )]
         public ActionResult Index()
         {

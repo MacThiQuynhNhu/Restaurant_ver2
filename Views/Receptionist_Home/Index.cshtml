@@ -1,8 +1,80 @@
-﻿
+﻿@model IEnumerable<Restaurant.Models.Ban>
+
 @{
     ViewBag.Title = "Tiếp tân - Trang chủ";
     Layout = "~/Views/Receptionist_Layout.cshtml";
 }
+@section Header{
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-<h2>Index</h2>
+        <li class="nav-item">
+            <a class="nav-link " href="~/Receptionist_Home/Index">
+                <i class="bi bi-grid"></i>
+                <span>Trang chủ</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Receptionist_DatBanTruoc/Index">
+                <i class="bi bi-person"></i>
+                <span>Đặt bàn trước</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
 
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Receptionist_KhachHang/Index">
+                <i class="bi bi-person"></i>
+                <span>Khách hàng</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+        <!-- End Login Page Nav -->
+
+    </ul>
+}
+    <div class="container" style="padding-top:120px; min-height:800px">
+        <div class="row">
+            <div class="col-md-12">
+                <h5> Trạng thái bàn hiện tại</h5>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+            <div class="table-responsive">
+                <table class="table border-success">
+                    <thead>
+                        <tr>
+                            <th>
+                                Mã bàn
+                            </th>
+                            <th>
+                                Tên bàn
+                            </th>
+                            <th>
+                                Trạng thái bàn
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaBan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenBan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TrangThai)
+                            </td>
+                        </tr>
+                    }
+
+
+                </table>
+            </div>
+        </div>
+    </div>

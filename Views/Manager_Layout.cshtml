@@ -128,12 +128,11 @@
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">MTARES</span>
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
         <div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <input type="text" name="query" placeholder="Tìm kiếm" title="Enter search keyword">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
         </div><!-- End Search Bar -->
@@ -164,25 +163,21 @@
                 <li>
                     <a href="~/Manager_TrangThaiBan/DanhSach"><i class="fa fa-table"></i><span class="menu-title" data-i18n="Dashboard"> Trạng thái bàn</span></a>
                 </li>
-                <li class="nav-item">
-                    <a href="~/Manager_NhanVien/Index"><i class="feather icon-user"></i><span class="menu-title" data-i18n="Templates">Nhân viên</span></a>
-                </li>
+               
                 <li class=" nav-item">
                     <a href="~/Manager_MonAn/Index"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Layouts">Món ăn</span></a>
                 </li>
                 <li class=" nav-item">
                     <a href="~/Manager_DauBep/Index"><i class="glyphicon glyphicon-user"></i><span class="menu-title" data-i18n="Layouts">Đầu bếp</span></a>
                 </li>
+               
                 <li class=" nav-item">
-                    <a href="~/Manager_KhuyenMai/Index"><i class="menu-title"></i><span class="menu-title" data-i18n="DuLieu">Khuyến mãi</span></a>
-                </li>
-                <li class=" nav-item">
-                    <a><i class="~/Manager_BaiViet/Index"></i><span class="menu-title" data-i18n="DuLieu">Bài viết</span></a>
+                    <a href="~/Manager_BaiViet/Index"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="DuLieu">Bài viết</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="~/Manager_SignUp/Index">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        <span>Đăng kí</span>
+                        <i class="feather icon-user"></i>
+                        <span>Nhân viên</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -261,18 +256,192 @@
         </div>
     </div>
     <!-- END: Content-->
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="copyright">
-            &copy; Copyright <strong><span>MTARES</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
+  
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Content/app-assets/vendors/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Content/app-assets/vendors/prism.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Content/app-assets/js/app-menu.min.js"></script>
+    <script src="~/Content/app-assets/js/app.min.js"></script>
+    <script src="~/Content/app-assets/js/customizer.min.js"></script>
+    <!-- END: Theme JS-->
+    <!-- Jquery -->
+    <script src="~/Content/jquery/js/jquery.js"></script>
+    <script src="~/Content/jquery/js/jquery.datetimepicker.js"></script>
+    <script src="~/Content/jquery/js/jquery.contextMenu.js"></script>
+    <script src="~/Content/jquery/js/jquery.dateformat.js"></script>
+    <script src="~/Content/jquery/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/jquery/js/jquery.ui.js"></script>
+    <script src="~/Content/jquery/js/jquery.mousewheel.js"></script>
+    <script src="~/Content/jquery/js/jquery.cscrollbar.js"></script>
+    <script src="~/Content/jquery/js/jquery.select2.js"></script>
+    <script src="~/Content/jquery/js/jquery.jcrop.js"></script>
+    <script src="~/Content/jquery/js/jquery.stacktable.js"></script>
+    <script src="~/Content/jquery/js/jquery.serializejson.js"></script>
+    <script src="~/Content/jquery/js/jquery.megaimgviewer.js"></script>
+    <script src="~/Content/jquery/js/jquery.rating.js"></script>
+    <script src="~/Content/jquery/js/jquery.bootstrap-select.js"></script>
+    <script src="~/Content/jquery/js/jquery.treegrid.js"></script>
+    <script src="~/Content/jquery/js/jquery.lightbox-plus-jquery.min.js"></script>
 
-            Designed by <a href="https://bootstrapmade.com/">MTA DEV TEAM</a>
-        </div>
-    </footer><!-- End Footer -->
+    <!-- Bootstrap -->
+    @*<script src="~/Content/bootstrap/js/bootstrap.js"></script>*@
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/bootstrap/js/dataTables.bootstrap.min.js"></script>
+    <!-- Beyond -->
+    <script src="~/Content/beyond/js/slimscroll/jquery.slimscroll.js"></script>
+    <script src="~/Content/beyond/js/validation/bootstrapValidator.js"></script>
+    <script src="~/Content/beyond/js/editors/summernote/summernote.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/easypiechart-init.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.orderBars.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/Chart.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/chartjs-init.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/raphael-2.0.2.min.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris-init.js"></script>
+    <script src="~/Content/beyond/js/skins.js"></script>
+    <script src="~/Content/beyond/js/beyond.js"></script>
+    <script src="~/Content/beyond/js/fullcalendar/fullcalendar.js"></script>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- APP -->
+    @*<script src="~/Content/app/js/main.js"></script>*@
+    <script src="~/Content/app/js/autocomplete.js"></script>
+    <script src="~/Content/app/js/utils.js"></script>
+    <script src="~/Content/app/js/main.js"></script>
+    <script src="~/Content/app/js/uploader.js"></script>
+    <script src="~/Content/app/js/upfile.js"></script>
+    <script src="~/Content/app/js/admin.js"></script>
+    <script src="~/Content/app/js/avatar.js"></script>
+    <script src="~/Content/app/js/pages.js"></script>
+    <script src="~/Content/app/js/test.js"></script>
+    <script src="~/Content/app/js/cust.js"></script>
+    <script src="~/Content/app/js/calendarfull.js"></script>
+    <script src="~/Content/Scripts/dropzone.js"></script>
+    <script src="~/Content/Custom_Binh/js/sweetalert.min.js"></script>
+    <script src="~/Content/Custom_Binh/js/comboTreePlugin.js"></script>
+    <script src="~/Content/Custom_Binh/js/jqueryrepeater.js"></script>
+    <script src="~/Content/Utils/Util.js"></script>
+    <!-- Dropzone -->
+    <!-- BEGIN: Page JS-->
+    @*<script src="~/Content/app-assets/js/compact-menu.min.js"></script>*@
+    <!-- END: Page JS-->
+    <script>
+        $(document).ready(function () {
+            active_menu();
+            //cái này để xử lý sự kiện mở rộng và thu hẹp menu dọc
+            $("a.menu-toggle").click(function () {
+                if ($(this).hasClass("is-active")) {
+                    $(this).find("i").removeClass("fa-arrow-circle-left").addClass("fa-arrow-circle-right");
+                }
+                else {
+                    $(this).find("i").removeClass("fa-arrow-circle-right").addClass("fa-arrow-circle-left");
+                }
+            });
+            $("#Synchroni").click(function () {
+                //ajax
+                $.ajax({
+                    url: '/Synchronized/SynchronizedNewYear',
+                    type: 'post',
+                    dataType: 'json',
+
+                    success: function (res) {
+                        if (res) {
+                            alert("Đồng bộ thành công")
+                        }
+                        else {
+                            alert("Có lỗi xảy ra ! Vui lòng thử lại");
+                        }
+                    }
+                })
+            });
+
+
+            function active_menu() {
+                let url = window.location.href;
+
+                // kiểm tra có url trùng không
+                let sel = $('.main-menu a').filter(function () {
+                    return this.href == url;
+                });
+                // nếu không có url trùng thì tiếp tục chuẩn hóa
+                if (sel.length == 0) {
+                    if (url.includes("?")) {// nếu url có các params đằng sau thì xóa nó đi để chuẩn hóa
+                        let url_split = url.split('?')[0];
+                        url = url_split;
+                    }
+                    sel = $('.main-menu a').filter(function () {
+                        return this.href == url;
+                    });
+                    if (sel.length == 0) {
+                        let url_arr = url.split('/');
+                        let url_str = '/' + url_arr[url_arr.length - 2] + '/' + url_arr[url_arr.length - 1];
+                        switch (url_str) {
+                            // ================ List Equipment =================//
+                            case '/Equipment/AddNewEquipment':
+                                url_str = '/Equipment/ListEquipment';
+                                break;
+                            case '/Equipment/EquipmentEdit':
+                                url_str = '/Equipment/ListEquipment';
+                                break;
+                            // ================ List repair Ship =================//
+                            case '/Equipment/EquipmentBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/EquipmentBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            case '/Equipment/ViewBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/ViewBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            // ================ Land =================//
+                            case '/Land/LandCreate':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/EditLand':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/LandDetail':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            // ================ House =================//
+                            case '/House/HouseCreate':
+                                url_str = '/House/ListAllHouse';
+                                break;
+                            default:
+                                break;
+                        }
+                        url_str = window.location.origin + url_str;//chuẩn hóa lại url
+                        sel = $('.main-menu a').filter(function () {
+                            return this.href == url_str;
+                        });
+                    }
+                }
+
+                sel.addClass('bg-info text-white font-weight-bold');
+                let menuLevel_2 = sel.parent().parent().parent();
+                if (menuLevel_2.hasClass("has-sub")) {
+                    menuLevel_2.addClass("open");
+                    let menuLevel_1 = menuLevel_2.parent().parent();
+                    if (menuLevel_1.hasClass("has-sub")) {
+                        menuLevel_1.addClass("open");
+                    }
+                }
+            }
+            // end
+        })
+    </script>
+
 
     <!-- END: Footer-->
     <!-- BEGIN: Vendor JS-->

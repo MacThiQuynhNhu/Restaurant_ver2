@@ -1,0 +1,168 @@
+﻿@model Restaurant.Models.BanDat_KhachHang
+@{ var ds_ban = ViewBag.DanhSachBan;
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Client_Layout.cshtml"; }
+
+@section Introduction{
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <a href="~/Controllers/Client/BookingController.cs">~/Controllers/Client/BookingController.cs</a>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Đặt bàn</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Đặt bàn</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+}
+<style>
+    .image {
+        object-fit: cover;
+        object-position: -68px;
+        margin-left: 0px;
+    }
+
+    .chu {
+        font-family: 'Dancing Script', cursive;
+        color: white;
+        flex: 0 0 auto;
+    }
+
+    .frm {
+        display: block;
+        width: 142mm;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #666565;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        appearance: none;
+        border-radius: 2px;
+        transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    }
+</style>
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <div>
+                            <img class="image" src="~/Web_Client/img/couple-1807617_960_720.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 bg-dark d-flex align-items-center">
+                        <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                            <h5 class="section-title ff-secondary text-start text-primary fw-normal">Đặt bàn</h5>
+                            <h1 class="text-white mb-4">Đặt bàn MTARES</h1>
+                            <hr />
+                            <div class="row g-3">
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 chu">Họ tên </label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "frm" } })
+                                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 chu">Số điện thoại </label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "frm" } })
+                                            @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 chu">Bàn </label>
+                                        <div class="col-md-10">
+                                            <select name="MaBan">
+                                                @foreach (var item in ds_ban)
+                                                {
+                                <option value=@item.MaBan>@item.MaBan</option>}
+                                            </select>
+                                            <div class="select-dropdown"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label  chu">Ngày </label>
+                                        <div class="col-md-12">
+                                            <input class="form-control" name="Ngay" value="@Html.Raw(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace(' ','T'))" type="date" />
+
+                                            @Html.ValidationMessageFor(model => model.Ngay, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 chu">Giờ </label>
+                                        <div class="col-md-6">
+                                            <input class="frm" name="Gio" value="@Html.Raw(DateTime.Now.ToString("HH:mm:ss").Replace(' ', 'T'))" type="time" />
+                                            @Html.ValidationMessageFor(model => model.Gio, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 chu">Số Lượng </label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.SoLuong, new { htmlAttributes = new { @class = "frm" } })
+                                            @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 chu">Ghi chú </label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "frm" } })
+                                            @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-12">
+                                            <button type="submit" class="btn btn-primary w-100 py-3"> ĐẶT NGAY</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>}
+
+<h1>Sơ đồ nhà hàng</h1>
+<img class="a" src="~/Web_Client/img/Restaurant.jpg" />
+<style>
+    .a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1036px;
+    }
+</style>
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                -->
+                16:9 aspect ratio
+                <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

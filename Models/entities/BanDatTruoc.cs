@@ -11,9 +11,12 @@ namespace Restaurant.Models
     {
         [Key]
         [StringLength(10)]
-        public string MaKhachHang { get; set; }
+        public string MaBanDatTruoc { get; set; }
 
         [Required]
+        [StringLength(10)]
+        public string MaKhachHang { get; set; }
+
         [StringLength(10)]
         public string MaBan { get; set; }
 
