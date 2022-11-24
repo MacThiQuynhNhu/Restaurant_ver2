@@ -27,49 +27,12 @@ namespace Restaurant.Controllers.Manager
             var dm = new MonAnF().DSBaiViet.Where(p => p.TenMonAn != null);
             ViewBag.MaDM = new SelectList(dm, "MaMonAn", "TenMonAn", null);
             return View();
-        }
-        [HttpPost]
-        public ActionResult Create(MonAn model, HttpPostedFileBase UrlAnh, string controller)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                if (UrlAnh == null)
-                {
-                    ModelState.AddModelError("File", "Chưa upload file ảnh");
-                }
-                else if (UrlAnh.ContentLength > 0)
-                {                 //TO:DO
-                    var fileName = Path.GetFileName(UrlAnh.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/Admin/assets/img"), fileName);
-                    UrlAnh.SaveAs(path);                    //   
-
-                    MonAnF spF = new MonAnF();
-                    model.HinhAnh = fileName;
-                    //model.HinhAnh = path;
-                    if (spF.Insert(model))
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-            catch
-            {
-                return View();
-            }
-            return View();
-            /*
-            // TODO: Add insert logic here
             using (var con = new Model1())
             {
-                con.BaiViets.Add(model);
-                con.SaveChanges();
-                return RedirectToAction("Index");
+                var model = con.MonAns.ToList();
+                return View(model);
             }
-            */
         }
-        /* end cuong */
         [HttpPost]
         public JsonResult getDetail(string id)
         {
@@ -172,5 +135,48 @@ namespace Restaurant.Controllers.Manager
                 }
             }
         }
+        [HttpPost]
+        public ActionResult Create(MonAn model, HttpPostedFileBase UrlAnh, string controller)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                if (UrlAnh == null)
+                {
+                    ModelState.AddModelError("File", "Chưa upload file ảnh");
+                }
+                else if (UrlAnh.ContentLength > 0)
+                {                 //TO:DO
+                    var fileName = Path.GetFileName(UrlAnh.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Admin/assets/img"), fileName);
+                    UrlAnh.SaveAs(path);                    //   
+
+                    MonAnF spF = new MonAnF();
+                    model.HinhAnh = fileName;
+                    //model.HinhAnh = path;
+                    if (spF.Insert(model))
+                    {
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
+            catch
+            {
+                return View();
+            }
+            return View();
+            /*
+            // TODO: Add insert logic here
+            using (var con = new Model1())
+            {
+                con.BaiViets.Add(model);
+                con.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            */
+        }
+        /* end cuong */
+       
     }
 }

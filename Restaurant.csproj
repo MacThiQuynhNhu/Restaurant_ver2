@@ -2119,14 +2119,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaiViet.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\BanDatTruoc.cs" />
     <Compile Include="Models\BanDat_KhachHang.cs" />
-    <Compile Include="Models\entities\BaiViet.cs" />
-    <Compile Include="Models\entities\Ban.cs" />
-    <Compile Include="Models\entities\BanDatTruoc.cs" />
-    <Compile Include="Models\entities\DanhGia.cs" />
-    <Compile Include="Models\entities\DanhSachGoiMon.cs" />
-    <Compile Include="Models\entities\DauBep.cs" />
-    <Compile Include="Models\entities\DSGM_MonAn.cs" />
+    <Compile Include="Models\DanhGia.cs" />
+    <Compile Include="Models\DanhSachGoiMon.cs" />
+    <Compile Include="Models\DauBep.cs" />
+    <Compile Include="Models\DSGM_MonAn.cs" />
     <Compile Include="Models\Function\account.cs" />
     <Compile Include="Models\Function\BaiVietF.cs" />
     <Compile Include="Models\Function\DauBepF.cs" />
@@ -2134,15 +2134,15 @@
     <Compile Include="Models\Function\NguoiDungF.cs" />
     <Compile Include="Models\Function\NhanVienF.cs" />
     <Compile Include="Models\Function\sieukhuyenmai.cs" />
-    <Compile Include="Models\entities\HoaDon.cs" />
-    <Compile Include="Models\entities\KhachHang.cs" />
-    <Compile Include="Models\entities\KhuyenMai.cs" />
-    <Compile Include="Models\entities\LoaiMon.cs" />
-    <Compile Include="Models\entities\Model1.cs" />
-    <Compile Include="Models\entities\MonAn.cs" />
-    <Compile Include="Models\entities\MonAn_KhuyenMai.cs" />
-    <Compile Include="Models\entities\NhanVien.cs" />
-    <Compile Include="Models\entities\NhomNguoiDung.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\KhuyenMai.cs" />
+    <Compile Include="Models\LoaiMon.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\MonAn.cs" />
+    <Compile Include="Models\MonAn_KhuyenMai.cs" />
+    <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\NhomNguoiDung.cs" />
     <Compile Include="Models\Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Models\Security\CustomPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2846,6 +2846,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\entities\" />
     <Folder Include="Views\BaiViet\" />
     <Folder Include="Views\Cashier_TaiKhoanCaNhan\" />
     <Folder Include="Views\Cashier_ThongKe\" />

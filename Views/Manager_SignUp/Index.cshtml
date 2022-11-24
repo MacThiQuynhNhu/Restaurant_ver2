@@ -19,7 +19,7 @@
         display: inline-block;
         box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
         outline: none;
-    }
+}
 
     .text {
         margin-left: 900px;
@@ -70,7 +70,9 @@
 
             .btn-1:hover:before {
                 height: 100%;
-            }
+        }
+    </style>
+</head>
 
             .btn-1:hover:after {
                 width: 100%;
@@ -109,6 +111,7 @@
         }
     /* btn them moi*/
 
+                                    <!--
 
 </style>
 
@@ -119,7 +122,22 @@
         </h5>
         <a class="custom-btn btn-1 text" style="float:right" href="/Manager_SignUp/DangKi">Thêm mới</a>
 
-    </div>
+                                    <div class="select-dropdown"></div>
+                                    </div>
+                                    -->
+                                    <label class="label">Giới tính</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">
+                                            Nam
+                                            <input type="radio" checked="checked" name="GioiTinh" value=00000001>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">
+                                            Nữ
+                                            <input type="radio" name="GioiTinh" value=00000000>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
     <div class="col-md-12">
         <table class="table">
             <tr>
@@ -180,6 +198,12 @@
                 @Html.DisplayFor(modelItem => item.MatKhau)
             </td>
 
+    <!-- Jquery JS-->
+    <script src="~/Content/SignUp/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/Content/SignUp/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/SignUp/vendor/datepicker/moment.min.js"></script>
+    <script src="~/Content/SignUp/vendor/datepicker/daterangepicker.js"></script>
 
         </tr>
 }
