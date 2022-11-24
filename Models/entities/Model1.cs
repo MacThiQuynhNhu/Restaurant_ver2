@@ -38,11 +38,6 @@ namespace Restaurant.Models
                 .Property(e => e.MaBan)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Ban>()
-                .HasMany(e => e.BanDatTruocs)
-                .WithRequired(e => e.Ban)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<BanDatTruoc>()
                 .Property(e => e.MaBanDatTruoc)
                 .IsUnicode(false);
