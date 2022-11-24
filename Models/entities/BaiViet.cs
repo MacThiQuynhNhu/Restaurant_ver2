@@ -5,6 +5,7 @@ namespace Restaurant.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("BaiViet")]
     public partial class BaiViet
@@ -20,5 +21,7 @@ namespace Restaurant.Models
         public string HinhAnh { get; set; }
 
         public string Link { get; set; }
+
+        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }

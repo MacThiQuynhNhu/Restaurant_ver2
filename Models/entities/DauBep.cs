@@ -5,6 +5,7 @@ namespace Restaurant.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("DauBep")]
     public partial class DauBep
@@ -27,5 +28,7 @@ namespace Restaurant.Models
         public string HinhAnh { get; set; }
 
         public string MoTa { get; set; }
+
+       
     }
 }
