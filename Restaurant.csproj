@@ -2119,10 +2119,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BanDat_KhachHang.cs" />
     <Compile Include="Models\entities\BaiViet.cs" />
     <Compile Include="Models\entities\Ban.cs" />
     <Compile Include="Models\entities\BanDatTruoc.cs" />
+    <Compile Include="Models\BanDat_KhachHang.cs" />
     <Compile Include="Models\entities\DanhGia.cs" />
     <Compile Include="Models\entities\DanhSachGoiMon.cs" />
     <Compile Include="Models\entities\DauBep.cs" />
