@@ -9,17 +9,9 @@ namespace Restaurant.Models
     [Table("DanhGia")]
     public partial class DanhGia
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DanhGia()
-        {
-            DanhSachGoiMons = new HashSet<DanhSachGoiMon>();
-        }
-
         [Key]
         [StringLength(10)]
         public string MaDanhGia { get; set; }
-
-        public string MoTa { get; set; }
 
         public int? SoSao { get; set; }
 
@@ -30,10 +22,8 @@ namespace Restaurant.Models
         [StringLength(10)]
         public string MaGoiMon { get; set; }
 
-        [StringLength(10)]
-        public string MaKhachHang { get; set; }
+        public bool? TonTai { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhSachGoiMon> DanhSachGoiMons { get; set; }
+        public virtual DanhSachGoiMon DanhSachGoiMon { get; set; }
     }
 }

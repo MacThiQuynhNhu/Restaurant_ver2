@@ -18,29 +18,8 @@ namespace Restaurant.Controllers.Client
         //public List[KhuyenMai] 
         public ActionResult Index()
         {
-            var query = (from s in db.MonAns
-                         join c in db.MonAn_KhuyenMai on s.MaMonAn equals c.MaMonAn
-                         join t in db.KhuyenMais on c.MaKhuyenMai equals t.MaKhuyenMai
-                         select new sieukhuyenmai
-                         {
-
-                             monan = s,
-                             monan_khuyenmai = c,
-                             khuyenmai = t,
-
-                             //s.TenMonAn,
-                             //s.Gia,
-                             //s.HinhAnh,
-                             //s.DonViTinh,
-                             //s.MoTa,
-                             //t.ThoiGianBatDau, 
-                             //t.ThoiGianKetThuc, 
-                             //t.MucKhuyenMai, 
-                             //t.DoiTuongApDung, 
-                             //t.Mota
-                         }).ToList();
-
-            return View(query);
+            var khuyenmai = db.KhuyenMais.ToList();
+            return View(khuyenmai);
         }
         //public ActionResult DetailKhuyenmai(string id)
         //{

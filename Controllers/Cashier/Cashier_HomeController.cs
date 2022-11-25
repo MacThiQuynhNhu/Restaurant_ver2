@@ -12,14 +12,42 @@ namespace Restaurant.Controllers.Cashier
         Model1 con = new Model1();
         public ActionResult Index()
         {
-            ViewBag.List_DanhSachGoiMon = con.DanhSachGoiMons.ToList().Where(x => x.MaHoaDon == null);
+            ViewBag.List_DanhSachGoiMon = con.DanhSachGoiMons.ToList().Where(x => x.TinhTrang == false);
             return View();
         }
 
         public ActionResult ThemHoaDon(string ds)
         {
-            DSGM_MonAn dsgm_ma = con.DSGM_MonAn.SingleOrDefault(x => x.MaGoiMon == ds);
-            ViewBag.List_MonAn = con.MonAns.ToList().Where(x => x.MaMonAn == dsgm_ma.MaMonAn);
+
+            ViewBag.List_NhanVien = con.NhanViens.ToList();
+            var query = (from s in con.MonAns
+                         join c in con.DSGM_MonAn on s.MaMonAn equals c.MaMonAn
+                         join t in con.DanhSachGoiMons on c.MaGoiMon equals t.MaGoiMon 
+                         //join e in con.HoaDons on t.MaHoaDon equals e.MaHoaDon
+                        where t.MaGoiMon==ds
+
+                         select new HOADON1
+                         {
+
+                             monan = s,
+                             DSGM_MonAn = c,
+                             DanhSachGoiMon = t,
+                             //HoaDon = e
+
+
+                             //s.TenMonAn,
+                             //s.Gia,
+                             //s.HinhAnh,
+                             //s.DonViTinh,
+                             //s.MoTa,
+                             //t.ThoiGianBatDau, 
+                             //t.ThoiGianKetThuc, 
+                             //t.MucKhuyenMai, 
+                             //t.DoiTuongApDung, 
+                             //t.Mota
+                         }).ToList();
+            ViewBag.List_hoadon1 = query;
+            ViewBag.MaGoiMon = ds;
             return View();
         }
         [HttpPost]
@@ -29,9 +57,13 @@ namespace Restaurant.Controllers.Cashier
             // TODO: Add insert logic here
             using (var con = new Model1())
             {
+                model.TinhTrang = "Đã thanh toán";
                 con.HoaDons.Add(model);
+                // DanhSachGoiMon ds = con.DanhSachGoiMons.Find(model.MaGoiMon);
+               // ds.MaHoaDon = model.MaHoaDon;
+
                 con.SaveChanges();
-                return RedirectToAction("DanhSach");
+                return RedirectToAction("Index");
             }
         }
     }

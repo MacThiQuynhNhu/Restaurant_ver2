@@ -12,7 +12,9 @@ namespace Restaurant.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DanhSachGoiMon()
         {
+            DanhGias = new HashSet<DanhGia>();
             DSGM_MonAn = new HashSet<DSGM_MonAn>();
+            HoaDons = new HashSet<HoaDon>();
         }
 
         [Key]
@@ -29,26 +31,21 @@ namespace Restaurant.Models
         public string MaKhachHang { get; set; }
 
         [StringLength(10)]
-        public string MaDanhGia { get; set; }
-
-        [StringLength(10)]
-        public string MaHoaDon { get; set; }
-
-        [StringLength(10)]
         public string MaBan { get; set; }
 
-        [StringLength(10)]
-        public string MaNhanVien { get; set; }
+        public bool? TonTai { get; set; }
 
         public virtual Ban Ban { get; set; }
 
-        public virtual DanhGia DanhGia { get; set; }
-
-        public virtual HoaDon HoaDon { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DanhGia> DanhGias { get; set; }
 
         public virtual KhachHang KhachHang { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DSGM_MonAn> DSGM_MonAn { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

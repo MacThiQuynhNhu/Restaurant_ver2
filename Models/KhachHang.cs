@@ -30,6 +30,8 @@ namespace Restaurant.Models
 
         public int? SoLanGoiMon { get; set; }
 
+        public bool? TonTai { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BanDatTruoc> BanDatTruocs { get; set; }
 

@@ -6,21 +6,25 @@ namespace Restaurant.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class MonAn_KhuyenMai
+    public partial class DSGMTruoc_MonAn
     {
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
-        public string MaMonAn { get; set; }
+        public string MaGoiMonTruoc { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [StringLength(10)]
-        public string MaKhuyenMai { get; set; }
+        public string MaMonAn { get; set; }
 
-        public string mota { get; set; }
+        public int? SoLuong { get; set; }
 
-        public virtual KhuyenMai KhuyenMai { get; set; }
+        public bool? TinhTrang { get; set; }
+
+        public bool? TonTai { get; set; }
+
+        public virtual DanhSachGoiMonTruoc DanhSachGoiMonTruoc { get; set; }
 
         public virtual MonAn MonAn { get; set; }
     }

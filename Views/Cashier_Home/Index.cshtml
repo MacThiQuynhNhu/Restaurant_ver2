@@ -46,17 +46,15 @@
             @item.ThoiGian
         </td>
         <td>
-            @item.TinhTrang
+            Chưa thanh toán
         </td>
+            
 
-        <td>
-            @item.TinhTrang
-        </td>
         <td>
             @item.MaKhachHang
         </td>
         <td>
-            @Html.ActionLink("Thêm hóa đơn", "ThemHoaDon")
+            @Html.ActionLink("Thêm hóa đơn", "ThemHoaDon",new { ds=item.MaGoiMon})
         </td>
     </tr>}
 

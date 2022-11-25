@@ -24,6 +24,10 @@ namespace Restaurant.Models
 
         public string ThoiGian { get; set; }
 
+        public int? GiaTien { get; set; }
+
+        public bool? TonTai { get; set; }
+
         public virtual DanhSachGoiMon DanhSachGoiMon { get; set; }
 
         public virtual MonAn MonAn { get; set; }
