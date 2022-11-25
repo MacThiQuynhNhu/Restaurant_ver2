@@ -27,6 +27,12 @@
             </a>
         </li><!-- End Profile Page Nav -->
         <!-- End Login Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Login/Index">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Đăng xuất</span>
+            </a>
+        </li>
 
     </ul>
 }
@@ -191,10 +197,10 @@
     <td>
         @item.GhiChu
     </td>
-    <td>
-        @Html.ActionLink("Sửa", "CapNhat", new { idMaKhachHang = item.MaKhachHang }) |
-        @Html.ActionLink("Xóa", "Xoa", new { idMaKhachHang = item.MaKhachHang })
-    </td>
+    @*<td>
+        @Html.ActionLink("Sửa", "CapNhat", new { idMaKhachHang = item.MaBanDatTruoc }) |
+        @Html.ActionLink("Xóa", "Xoa", new { idMaKhachHang = item.MaBanDatTruoc })
+    </td>*@
 
 </tr>
        }

@@ -2135,6 +2135,7 @@
     <Compile Include="Models\Function\NhanVienF.cs" />
     <Compile Include="Models\Function\sieukhuyenmai.cs" />
     <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\HOADON1.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\KhuyenMai.cs" />
     <Compile Include="Models\LoaiMon.cs" />
@@ -2692,6 +2693,7 @@
     <Content Include="Views\Manager_MonAn\Create.cshtml" />
     <Content Include="Views\Booking\DatNgay.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Cashier_Home\ThemHoaDon.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

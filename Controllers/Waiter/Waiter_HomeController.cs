@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Restaurant.Models.Security;
 using Restaurant.Models;
 using System.Data.Entity;
+using PagedList;
+
 namespace Restaurant.Controllers.Waiter
 {
     public class Waiter_HomeController : Controller
@@ -35,9 +37,71 @@ namespace Restaurant.Controllers.Waiter
 
         }
 
-        public ActionResult CapNhatBan(string MaBan)
-        {
+        //public ActionResult CapNhatBan(string MaBan)
+        //{
 
+        //    var obj = cons.Bans.Find(MaBan);
+        //    DanhSachGoiMon dsGoiMon = new DanhSachGoiMon();
+        //    ViewBag.ban = obj;
+        //    var dsGoiMonList = cons.DanhSachGoiMons.ToList().Where(x => x.MaBan == MaBan);
+        //    if (dsGoiMonList.Count() != 0)
+        //    {
+        //        dsGoiMon = dsGoiMonList.ElementAt(dsGoiMonList.Count() - 1);
+        //    }
+        //    ViewBag.fullListFood = cons.MonAns.ToList();
+        //    ViewBag.khachHang = cons.KhachHangs.SingleOrDefault(x => x.MaKhachHang == dsGoiMon.MaKhachHang);
+        //    ViewBag.hoaDon = cons.HoaDons.SingleOrDefault(x => x.MaHoaDon == dsGoiMon.MaHoaDon);
+        //    ViewBag.danhGia = cons.HoaDons.SingleOrDefault(x => x.MaGoiMon == dsGoiMon.MaGoiMon);
+        //    ViewBag.nhanVien = cons.NhanViens.SingleOrDefault(x => x.MaNhanVien == dsGoiMon.MaNhanVien);
+        //    ViewBag.dsGoiMon = dsGoiMon;
+        //    var dsMonAn = cons.DSGM_MonAn.ToList().Where(i => i.MaGoiMon == dsGoiMon.MaGoiMon);
+        //    ViewBag.dsMonAn = dsMonAn;
+        //    List<MonAn> listMonAn = new List<MonAn>();
+        //    foreach (var item in dsMonAn)
+        //    {
+        //        MonAn mon = cons.MonAns.SingleOrDefault(x => x.MaMonAn == item.MaMonAn);
+        //        listMonAn.Add(mon);
+        //    }
+        //    ViewBag.listMonAn = listMonAn;
+        //    return View();
+        //}
+
+
+        //[HttpPost]
+        //public ActionResult CapNhatBan(Ban model)
+        //{
+
+        //    using (var con = new Model1())
+        //    {
+        //        var obj = con.Bans.Find(model.MaBan);
+        //        obj.MaBan = model.MaBan;
+        //        obj.TenBan = model.TenBan;
+        //        obj.TrangThai = model.TrangThai;
+        //        con.SaveChanges();
+        //        return RedirectToAction("DanhSach");
+
+        //    }
+
+        //}
+
+        public ActionResult CapNhatBan(string MaBan, int? size, int? page, string searchString)
+        {
+            ViewBag.searchValue = searchString;
+            ViewBag.page = page;
+            ViewBag.MaBan = MaBan;
+            // 2. Tạo danh sách chọn số trang
+            List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem { Text = "Tất cả", Value = "0" });
+            items.Add(new SelectListItem { Text = "Đang chờ phục vụ", Value = "1" });
+            items.Add(new SelectListItem { Text = "Đã được phục vụ", Value = "2" });
+            // 2.1. Thiết lập số trang đang chọn vào danh sách List<SelectListItem> items
+            foreach (var item in items)
+            {
+                if (item.Value == size.ToString()) item.Selected = true;
+            }
+
+            ViewBag.size = items;
+            ViewBag.currentSize = size;
             var obj = cons.Bans.Find(MaBan);
             DanhSachGoiMon dsGoiMon = new DanhSachGoiMon();
             ViewBag.ban = obj;
@@ -53,6 +117,18 @@ namespace Restaurant.Controllers.Waiter
             ViewBag.nhanVien = cons.NhanViens.SingleOrDefault(x => x.MaNhanVien == dsGoiMon.MaNhanVien);
             ViewBag.dsGoiMon = dsGoiMon;
             var dsMonAn = cons.DSGM_MonAn.ToList().Where(i => i.MaGoiMon == dsGoiMon.MaGoiMon);
+            if (size == null || size.ToString() == "0")
+            {
+                dsMonAn = dsMonAn.Where(i => i.MaGoiMon == dsGoiMon.MaGoiMon);
+            }
+            else if (size.ToString() == "1")
+            {
+                dsMonAn = dsMonAn.Where(i => i.TinhTrang == 0);
+            }
+            else
+            {
+                dsMonAn = dsMonAn.Where(i => i.TinhTrang == 1);
+            }
             ViewBag.dsMonAn = dsMonAn;
             List<MonAn> listMonAn = new List<MonAn>();
             foreach (var item in dsMonAn)
@@ -61,7 +137,24 @@ namespace Restaurant.Controllers.Waiter
                 listMonAn.Add(mon);
             }
             ViewBag.listMonAn = listMonAn;
-            return View();
+
+            // 5.2. Nếu page = null thì đặt lại là 1.
+            if (page == null) page = 1;
+
+            // 5.3. Tạo kích thước trang (pageSize), mặc định là 5.
+            int pageSize = 0;
+
+            ViewBag.pageSize = pageSize;
+            // 6. Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber. 
+            int pageNumber = (page ?? 1);
+            ViewBag.pageNumber = pageNumber;
+
+            // 6.2 Lấy tổng số record chia cho kích thước để biết bao nhiêu trang
+            int checkTotal = (int)(dsMonAn.ToList().Count / 20) + 1;
+            // Nếu trang vượt qua tổng số trang thì thiết lập là 1 hoặc tổng số trang
+            if (pageNumber > checkTotal) pageNumber = checkTotal;
+            return View(dsMonAn.ToPagedList(pageNumber, 20));
         }
 
 
@@ -82,7 +175,6 @@ namespace Restaurant.Controllers.Waiter
 
         }
 
-       
 
         public JsonResult addFood(string MaGoiMon, string MaMonAn, int SoLuong, string ThoiGian)
         {
@@ -150,6 +242,38 @@ namespace Restaurant.Controllers.Waiter
                 }
             }
         }
+        public JsonResult updateStatusBan(string MaBan, string TrangThai)
+        {
+            var context = new Model1();
+            using (DbContextTransaction transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    Ban newItem = context.Bans.SingleOrDefault(x => x.MaBan == MaBan);
+                    if (TrangThai == "0")
+                    {
+                        newItem.TrangThai = "Đã đặt trước";
+                    }
+                    else if (TrangThai == "1")
+                    {
+                        newItem.TrangThai = "Đang chờ phục vụ";
+                    }
+                    else
+                    {
+                        newItem.TrangThai = "Trống";
+                    }
+                    context.SaveChanges();
+                    transaction.Commit();
+                    return Json(new { status = true });
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    return Json(new { status = false });
+                }
+            }
+        }
+
 
     }
 }

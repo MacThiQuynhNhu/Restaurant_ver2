@@ -1,11 +1,18 @@
-﻿@model IEnumerable<Restaurant.Models.DauBep>
+﻿@model PagedList.IPagedList<Restaurant.Models.DauBep>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Quản lý đầu bếp";
     Layout = "~/Views/Manager_Layout.cshtml";
     var counter = 1;
+    int pageNumber = ViewBag.pageNumber;
+    int pageSize = ViewBag.pageSize;
+
+    int order = 0;
+    int j = (pageNumber - 1) * pageSize + 1;
 
 }
+
 
 <style>
     .over_auto {
@@ -57,60 +64,120 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-12" style="padding:0">
-                        <div class="widget-body no-padding widget_form_table" id="data">
-                            <div class="dataTables_wrapper form-inline" style="padding:5px;">
-                                <table id="tblForm" style="width:100%" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="searchable_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th tabindex="0" style="width:5%">STT</th>
-                                            <th tabindex="0" aria-controls="searchable">Họ và tên</th>
-                                            <th aria-controls="searchable">Giới tính</th>
-                                            <th tabindex="0">Số điện thoại</th>
-                                            <th tabindex="0">Địa chỉ</th>
-                                            @*<th tabindex="0">Hình ảnh</th>*@
-                                            <th tabindex="0">Ghi chú</th>
-                                            <th tabindex="0" style="width:15%">Tác vụ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr style="cursor:pointer" data-id="@item.MaDauBep">
-                                                <td style="text-align:center">@counter</td>
-                                                <td style="text-align:center">@item.TenDauBep</td>
-                                                @if (item.GioiTinh == true)
-                                                {
-                                                    <td style="text-align:center">Nam</td>
-                                                }
-                                                else
-                                                {
-                                                    <td style="text-align:center">Nữ</td>
-                                                }
-                                                <td style="text-align:center">@item.SoDienThoai</td>
-                                                <td class="text-center">@item.DiaChi</td>
-                                                @*<td style="text-align:center"><img src="@item.HinhAnh"/></td>*@
-                                                <td style="text-align:center">@item.MoTa</td>
+                <div class="row" style="margin-bottom: 0">
+                    <div class="row" style="margin-bottom: 0">
+                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6" style="padding-left: 0">
+                            @using (Html.BeginForm("Index", "Manager_DauBep", FormMethod.Get))
+                            {
+                                <p>
+                                    Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+                                </p>
 
-                                                <td>
-                                                    <button data-id="@item.MaDauBep" class="showDetailModal btn btn-primary view_file" role="button" title="Xem chi tiết">
-                                                        <i class="fa fa-eye"></i>
-                                                    </button>
-                                                    <button data-id="@item.MaDauBep" class="btn btn-primary showEditModal" role="button" title="Chỉnh sửa thông tin">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@item.MaDauBep'>
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            counter++;
-                                        }
-                                    </tbody>
-                                </table>
+                                @Html.Hidden("page", (object)ViewBag.page)
+                                @Html.Hidden("searchString", (object)ViewBag.searchValue)
+                            }
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6" style="text-align: right; padding-right: 0">
+
+                            @using (Html.BeginForm("Index", "Manager_DauBep", FormMethod.Get))
+                            {
+                                <p>
+                                    @Html.TextBox("SearchString", (string)ViewBag.searchValue) <input type="submit" value="Tìm kiếm" style="border-color: #ccc; border-radius: 3px" /> <input type="submit" name="Reset" value="Mặc định" style="display: none" />
+                                    @Html.Hidden("page", (object)ViewBag.page)
+                                    @Html.Hidden("size", (object)ViewBag.pageSize)
+                                </p>
+                            }
+                        </div>
+                    </div>
+                    <table id="allDoc_table" class="table table-striped table-bordered" cellspacing="0" style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr style="color:black; background-color:#00bcd4">
+                                @Html.Raw(ViewBag.Headings)
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var d in Model)
+                            {
+
+                                //order = order + j;
+                                <tr>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">@j</td>
+                                    @{
+                                        j = j + 1;
+                                    }
+                                    @if (d.MaDauBep != null)
+                                    {
+                                        <td style="text-align: center; display: table-cell; vertical-align: middle; overflow: hidden">@d.MaDauBep</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @if (d.TenDauBep != null)
+                                    {
+                                        <td style="text-align: center; display: table-cell; vertical-align: middle">@d.TenDauBep</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+
+                                    @if (d.SoDienThoai != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.SoDienThoai</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @* Lớp *@
+                                    @if (d.DiaChi != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.DiaChi</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @* Khóa *@
+                                    @if (d.MoTa != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.MoTa </td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    <td style="justify-content: center">
+                                        <button data-id="@d.MaDauBep" class="showDetailModal btn btn-primary view_file" role="button" title="Xem chi tiết">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                        <button data-id="@d.MaDauBep" class="btn btn-primary showEditModal" role="button" title="Chỉnh sửa thông tin">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@d.MaDauBep'>
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="row" id="allDoc_page">
+                        <!-- Thêm mã phân trang -->
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: left; padding-left: 0;">
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index", "Manager_DauBep", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: right; padding-right: 0; padding-top: 20px">
+                                Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
                             </div>
                         </div>
+
+                        <!-- Kết thúc -->
                     </div>
                 </div>
             </div>

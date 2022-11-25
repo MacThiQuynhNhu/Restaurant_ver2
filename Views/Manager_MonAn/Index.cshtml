@@ -1,10 +1,14 @@
-﻿@model IEnumerable<Restaurant.Models.MonAn>
-
+﻿@model PagedList.IPagedList<Restaurant.Models.MonAn>
+@using PagedList.Mvc;
 @{
-    ViewBag.Title = "Quản lý đầu bếp";
+    ViewBag.Title = "Quản lý món ăn";
     Layout = "~/Views/Manager_Layout.cshtml";
     var counter = 1;
-
+    var listTypeFood = ViewBag.listTypeFood;
+    int pageNumber = ViewBag.pageNumber;
+    int pageSize = ViewBag.pageSize;
+    int order = 0;
+    int j = (pageNumber - 1) * pageSize + 1;
 }
 
 <style>
@@ -57,53 +61,135 @@
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-12" style="padding:0">
-                        <div class="widget-body no-padding widget_form_table" id="data">
-                            <div class="dataTables_wrapper form-inline" style="padding:5px;">
-                                <table id="tblForm" style="width:100%" class="table table-bordered table-hover table-striped dataTable" role="grid" aria-describedby="searchable_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th tabindex="0" style="width:5%">STT</th>
-                                            <th tabindex="0" aria-controls="searchable">Tên món ăn</th>
-                                            <th aria-controls="searchable">Giá</th>
-                                            <th tabindex="0">Đơn vị tính</th>
-                                            <th tabindex="0">Mô tả</th>
-                                            @*<th tabindex="0">Hình ảnh</th>*@
-                                            <th tabindex="0">Thời gian ra mắt</th>
-                                            <th tabindex="0" style="width:15%">Tác vụ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr style="cursor:pointer" data-id="@item.MaMonAn">
-                                                <td style="text-align:center">@counter</td>
-                                                <td style="text-align:center">@item.TenMonAn</td>
-                                                <td style="text-align:center">@item.Gia</td>
-                                                <td class="text-center">@item.DonViTinh</td>
-                                                <td style="text-align:center">@item.MoTa</td>
-                                            @*<td style="text-align:center"><img src="~/Content/Admin/assets/img/@item.HinhAnh" width="30px" alt="img" /></td>*@
-                                                <td style="text-align:center">@item.ThoiGianRaMat</td>
+                <div class="row" style="margin-bottom: 0">
+                    <div class="row" style="margin-bottom: 0">
+                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6" style="padding-left: 0">
+                            @using (Html.BeginForm("Index", "Manager_MonAn", FormMethod.Get))
+                            {
+                                <p>
+                                    Kích thước trang: @Html.DropDownList("size", (List<SelectListItem>)ViewBag.size, new { @onchange = "this.form.submit();" })
+                                </p>
+                                @Html.Hidden("page", (object)ViewBag.page)
+                                @Html.Hidden("searchString", (object)ViewBag.searchValue)
+                            }
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6" style="text-align: right; padding-right: 0">
 
-                                                <td>
-                                                    <button data-id="@item.MaMonAn" class="showDetailModal btn btn-primary view_file" role="button" title="Xem chi tiết">
-                                                        <i class="fa fa-eye"></i>
-                                                    </button>
-                                                    <button data-id="@item.MaMonAn" class="btn btn-primary showEditModal" role="button" title="Chỉnh sửa thông tin">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@item.MaMonAn'>
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            counter++;
+                            @using (Html.BeginForm("Index", "Manager_MonAn", FormMethod.Get))
+                            {
+                                <p>
+                                    @Html.TextBox("SearchString", (string)ViewBag.searchValue) <input type="submit" value="Tìm kiếm" style="border-color: #ccc; border-radius: 3px" /> <input type="submit" name="Reset" value="Mặc định" style="display: none" />
+                                    @Html.Hidden("page", (object)ViewBag.page)
+                                    @Html.Hidden("size", (object)ViewBag.pageSize)
+                                </p>
+                            }
+                        </div>
+                    </div>
+                    <table id="allDoc_table" class="table table-striped table-bordered" cellspacing="0" style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr style="color:black; background-color:#00bcd4">
+                                @Html.Raw(ViewBag.Headings)
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var d in Model)
+                            {
+
+                                //order = order + j;
+                                <tr>
+                                    <td style="text-align: center; display: table-cell; vertical-align: middle">@j</td>
+                                    @{
+                                        j = j + 1;
+                                    }
+                                    @if (d.TenMonAn != null)
+                                    {
+                                        <td style="text-align: center; display: table-cell; vertical-align: middle; overflow: hidden">@d.TenMonAn</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @if (d.Gia != null)
+                                    {
+                                        <td style="text-align: center; display: table-cell; vertical-align: middle">@d.Gia</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+
+                                    @if (d.DonViTinh != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.DonViTinh</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @* Lớp *@
+                                    @if (d.MoTa != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.MoTa</td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @* Khóa *@
+                                    @if (d.ThoiGianRaMat != null)
+                                    {
+                                        <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@d.ThoiGianRaMat </td>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    @if (d.MaLoaiMon != null)
+                                    {
+                                        foreach (var type in listTypeFood)
+                                        {
+                                            if (type.MaLoaiMon == d.MaLoaiMon)
+                                            {
+                                                <td style="text-align: center; text-align: center; display: table-cell; vertical-align: middle">@type.TenLoaiMon </td>
+
+                                            }
                                         }
-                                    </tbody>
-                                </table>
+                                    }
+                                    else
+                                    {
+                                        <td></td>
+                                    }
+                                    <td>
+                                        
+                                        <button data-id="@d.MaMonAn" class="btn btn-primary showEditModal" role="button" title="Chỉnh sửa thông tin">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        @*<button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@d.MaMonAn'>
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="row" id="allDoc_page">
+                        <!-- Thêm mã phân trang -->
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: left; padding-left: 0;">
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index", "Manager_MonAn", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
+                            </div>
+
+                            <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: right; padding-right: 0; padding-top: 20px">
+                                Trang: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
                             </div>
                         </div>
+
+                        <!-- Kết thúc -->
+
+
+
                     </div>
                 </div>
             </div>
@@ -246,9 +332,9 @@
                     </div>
                 </form>
             </div>
-            </div>
         </div>
     </div>
+</div>
 
 <div id="detailModal" style="margin-left: 0px; overflow-y: hidden;" class="modal fade" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style=" left:7%;top:-3%; width: 70%; height: 800px;" role="document">
@@ -461,16 +547,16 @@
                 type: "post",
                 dataType: 'json',
                 data: {
-                    id: fooId
+                    id: foodId
                 },
                 success: function (response) {
                     if (response) {
-                        document.getElementById("foodNameEdit").value = (response.res).TenMonAn;
-                        document.getElementById("foodPriceEdit").value = (response.res).Gia;
-                        document.getElementById("foodUnitEdit").value = (response.res).DonViTinh;
-                        document.getElementById("foodDesEdit").value = (response.res).MoTa;
-                        document.getElementById("foodTimeEdit").value = (response.res).ThoiGianRaMat;
-                        $("#foodImgEdit").attr('src', (response.res).HinhAnh);
+                        document.getElementById("foodNameEdit").value = response.TenMonAn;
+                        document.getElementById("foodPriceEdit").value = response.Gia;
+                        document.getElementById("foodUnitEdit").value = response.DonViTinh;
+                        document.getElementById("foodDesEdit").value = response.MoTa;
+                        document.getElementById("foodTimeEdit").value = response.ThoiGianRaMat;
+                        $("#foodImgEdit").attr('src', response.HinhAnh);
                     }
                 },
                 error: function (msg) {
@@ -479,7 +565,7 @@
             });
             $("#btnEdit").click(function () {
                 swal({
-                    title: "Bạn có chắc chắn muốn sửa thông tin đầu bếp này không?",
+                    title: "Bạn có chắc chắn muốn sửa thông tin món ăn này không?",
                     text: "Kiểm tra kỹ trước khi thực hiện!",
                     icon: "warning",
                     type: "warning"
