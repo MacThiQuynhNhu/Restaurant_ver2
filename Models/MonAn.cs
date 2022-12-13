@@ -13,7 +13,7 @@ namespace Restaurant.Models
         public MonAn()
         {
             DSGM_MonAn = new HashSet<DSGM_MonAn>();
-            MonAn_KhuyenMai = new HashSet<MonAn_KhuyenMai>();
+            DSGMTruoc_MonAn = new HashSet<DSGMTruoc_MonAn>();
         }
 
         [Key]
@@ -37,12 +37,14 @@ namespace Restaurant.Models
         [StringLength(10)]
         public string MaLoaiMon { get; set; }
 
+        public bool? TonTai { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DSGM_MonAn> DSGM_MonAn { get; set; }
 
-        public virtual LoaiMon LoaiMon { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
+        public virtual ICollection<DSGMTruoc_MonAn> DSGMTruoc_MonAn { get; set; }
+
+        public virtual LoaiMon LoaiMon { get; set; }
     }
 }

@@ -1,0 +1,323 @@
+﻿
+@model Restaurant.Models.HoaDon
+@{
+    var list_nhanvien = ViewBag.List_NhanVien;
+    var list_hoadon1 = ViewBag.List_hoadon1;
+    var mads = ViewBag.MaGoiMon;
+    ViewBag.Title = "Thanh toán cho khách";
+    Layout = "~/Views/Cashier_Layout.cshtml";
+}
+
+<style>
+    body {
+        margin-top: 20px;
+        color: #484b51;
+    }
+
+    .text-secondary-d1 {
+        color: #728299 !important;
+    }
+
+    .page-header {
+        margin: 0 0 1rem;
+        padding-bottom: 1rem;
+        padding-top: .5rem;
+        border-bottom: 1px dotted #e2e2e2;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .page-title {
+        padding: 0;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 300;
+    }
+
+    .brc-default-l1 {
+        border-color: #dce9f0 !important;
+    }
+
+    .ml-n1, .mx-n1 {
+        margin-left: -.25rem !important;
+    }
+
+    .mr-n1, .mx-n1 {
+        margin-right: -.25rem !important;
+    }
+
+    .mb-4, .my-4 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+
+    .text-grey-m2 {
+        color: #888a8d !important;
+    }
+
+    .text-success-m2 {
+        color: #86bd68 !important;
+    }
+
+    .font-bolder, .text-600 {
+        font-weight: 600 !important;
+    }
+
+    .text-110 {
+        font-size: 110% !important;
+    }
+
+    .text-blue {
+        color: #478fcc !important;
+    }
+
+    .pb-25, .py-25 {
+        padding-bottom: .75rem !important;
+    }
+
+    .pt-25, .py-25 {
+        padding-top: .75rem !important;
+    }
+
+    .bgc-default-tp1 {
+        background-color: rgba(121,169,197,.92) !important;
+    }
+
+    .bgc-default-l4, .bgc-h-default-l4:hover {
+        background-color: #f3f8fa !important;
+    }
+
+    .page-header .page-tools {
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+    }
+
+    .btn-light {
+        color: #757984;
+        background-color: #f5f6f9;
+        border-color: #dddfe4;
+    }
+
+    .w-2 {
+        width: 1rem;
+    }
+
+    .text-120 {
+        font-size: 120% !important;
+    }
+
+    .text-primary-m1 {
+        color: #4087d4 !important;
+    }
+
+    .text-danger-m1 {
+        color: #dd4949 !important;
+    }
+
+    .text-blue-m2 {
+        color: #68a3d5 !important;
+    }
+
+    .text-150 {
+        font-size: 150% !important;
+    }
+
+    .text-60 {
+        font-size: 60% !important;
+    }
+
+    .text-grey-m1 {
+        color: #7b7d81 !important;
+    }
+
+    .align-bottom {
+        vertical-align: bottom !important;
+    }
+
+    #bang {
+        margin-left: 12px
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal mt-5" style="padding-top: 20px; padding-left:15px">
+    <h4>Thêm mới hóa đơn</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style="padding-top: 20px">
+        <label class="control-label col-md-2">Mã gọi món </label>
+        @*<div class="col-md-10">
+                <select name="MaGoiMon">
+                    <option value=@mads>@mads</option>
+                </select>
+                <div class="select-dropdown"></div>
+            </div>*@
+        <input value=@mads name="MaGoiMon" />
+
+    </div>
+    <div class="form-group" style="padding-top: 20px">
+        <label class="control-label col-md-2">Mã hóa đơn </label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaHoaDon, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaHoaDon, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding-top: 20px">
+        <label class="control-label col-md-2">Thời gian xuất </label>
+        <div class="col-md-10">
+            <input class="form-control" name="ThoiGianXuat" value="@Html.Raw(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss").Replace(' ','T'))" type="datetime-local" />
+            @Html.ValidationMessageFor(model => model.ThoiGianXuat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="padding-top: 20px">
+        <label class="control-label col-md-2">Tên nhân viên </label>
+        <div class="col-md-10">
+            <select name="MaNhanVien">
+                @foreach (var item in list_nhanvien)
+                {
+                    <option value=@item.MaNhanVien>@item.HoTen</option>
+                }
+            </select>
+            <div class="select-dropdown"></div>
+        </div>
+    </div>
+
+    <div class="form-group" style="padding-top: 20px">
+        <label class="control-label col-md-2">Thành tiền </label>
+        @*<div class="col-md-10">
+                <select name="SoTien">
+                    <option value=@mads id="bang"></option>
+                </select>
+                <div class="select-dropdown"></div>
+            </div>*@
+
+        <input name="SoTien" id="tien"/>
+
+    </div>
+
+
+    <div class="form-group" style="margin-top:12px; padding-left:550px">
+        <div class="col-md-offset-2 col-md-6">
+            <input type="submit" value="Thêm" class="btn btn-primary" style="" />
+        </div>
+    </div>
+
+</div>
+}
+
+<div class="container" style="padding-top:10px; min-height:800px">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <div class="page-content container">
+
+        
+        <div class="container px-0">
+            <div class="row mt-4">
+                <div class="col-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-12">
+
+                        </div>
+                    </div>
+                    <!-- .row -->
+
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
+
+
+
+                    <div class="mt-4">
+                        <div class="row text-600 text-white bgc-default-tp1 py-25">
+
+                            <div class="col-9 col-sm-5">Tên món ăn </div>
+                            <div class="d-none d-sm-block col-4 col-sm-2">Số lượng</div>
+                            <div class="d-none d-sm-block col-sm-2">Đơn giá</div>
+                            <div class="col-2">Tổng cộng</div>
+                        </div>
+
+                        <div class="text-95 text-secondary-d3">
+                            
+                            @foreach (var item in list_hoadon1)
+                            {
+                                <div class="row mb-2 mb-sm-0 py-25">
+
+                                    <div class="col-9 col-sm-5">@item.monan.TenMonAn</div>
+                                    <div class="d-none d-sm-block col-2">@item.DSGM_MonAn.SoLuong</div>
+                                    <div class="d-none d-sm-block col-2 text-95">@item.monan.Gia VNĐ</div>
+                                    <div class="col-2 text-secondary-d2">@(item.monan.Gia * @item.DSGM_MonAn.SoLuong)</div>
+
+                                </div>
+
+                            }
+
+                            <div class="row mt-3">
+                                <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
+                                </div>
+
+                                <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
+                                    <div class="row my-2">
+
+                                        <div class="col-5">
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-2">
+                                        <div class="col-7 text-right">
+                                        </div>
+                                        <div class="col-5">
+                                        </div>
+                                    </div>
+
+                                    <div class="row my-2 align-items-center bgc-primary-l3 p-2">
+                                        <div class="col-7 text-right" id="bang" name ="SoTien">
+                                            Thành tiền:
+                                        </div>
+                                        <div class="col-5">
+                                            <span class="text-150 text-success-d3 opacity-2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+    var tds = document.getElementsByClassName('text-secondary-d2');
+
+    var sum = 0;
+    for (var i = 0; i < tds.length; i++) {
+        console.log(tds[i].innerHTML)
+        console.log(typeof tds)
+        if (tds[i].className == 'col-2 text-secondary-d2') {
+            var array = Object.values((tds[i].innerHTML))
+            var number = Number(array.join(""))
+            sum += number
+        }
+    }
+    document.getElementById('bang').innerHTML += '<span class="tong">' + sum + '</span>';
+    document.getElementById('tien').value = sum
+</script>

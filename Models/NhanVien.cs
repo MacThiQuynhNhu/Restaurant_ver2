@@ -41,6 +41,8 @@ namespace Restaurant.Models
         [StringLength(10)]
         public string MaNhom { get; set; }
 
+        public bool? TonTai { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 

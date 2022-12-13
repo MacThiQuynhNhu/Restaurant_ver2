@@ -105,11 +105,11 @@ namespace Restaurant.Controllers.Manager
                 ViewBag.Headings += "<th style=\"text-align: center; width: 5%\" id=\"" + item.Item1 + "\">" + listHeadings[i] + "</th>";
                 } else if (i == 1)
                 {
-                    ViewBag.Headings += "<th style=\"text-align: center; width: 5%\" id=\"" + item.Item1 + "\">" + listHeadings[i] + "</th>";
+                    ViewBag.Headings += "<th style=\"text-align: center; width: 10%\" id=\"" + item.Item1 + "\">" + listHeadings[i] + "</th>";
                 }
                 else if (i == 2)
                 {
-                    ViewBag.Headings += "<th style=\"text-align: center; width: 15%\" id=\"" + item.Item1 + "\">" + listHeadings[i] + "</th>";
+                    ViewBag.Headings += "<th style=\"text-align: center; width: 10%\" id=\"" + item.Item1 + "\">" + listHeadings[i] + "</th>";
                 }
                 else if (i == 3)
                 {
@@ -175,8 +175,10 @@ namespace Restaurant.Controllers.Manager
                     List<DauBep> listChef = context.DauBeps.ToList();
                     int count = listChef.Count();
                     DauBep lastChef = listChef.ElementAt(count - 1);
-                    string temp_id = lastChef.MaDauBep;
-                    string next_id = (Int32.Parse(temp_id) + 1).ToString();
+                    string id = (DateTime.UtcNow).ToString();
+                    string day = (id.Split(' ')[0]).Replace('/', '_');
+                    string time = (id.Split(' ')[1]).Replace(':', '_');
+                    string next_id = "DB" + time;
                     DauBep newDb = new DauBep();
                     newDb.MaDauBep = next_id;
                     newDb.TenDauBep = TenDauBep;

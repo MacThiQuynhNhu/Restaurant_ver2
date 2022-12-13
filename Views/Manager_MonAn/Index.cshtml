@@ -160,15 +160,13 @@
                                         <td></td>
                                     }
                                     <td>
-                                        <button data-id="@d.MaMonAn" class="showDetailModal btn btn-primary view_file" role="button" title="Xem chi tiết">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
+                                        
                                         <button data-id="@d.MaMonAn" class="btn btn-primary showEditModal" role="button" title="Chỉnh sửa thông tin">
                                             <i class="fa fa-pencil"></i>
                                         </button>
-                                        <button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@d.MaMonAn'>
+                                        @*<button class="btn btn-danger btnDelete" role="button" title="Xóa" data-toggle="modal" data-target="#delete" data-id='@d.MaMonAn'>
                                             <i class="fa fa-trash-o"></i>
-                                        </button>
+                                        </button>*@
                                     </td>
                                 </tr>
                             }
@@ -549,16 +547,16 @@
                 type: "post",
                 dataType: 'json',
                 data: {
-                    id: fooId
+                    id: foodId
                 },
                 success: function (response) {
                     if (response) {
-                        document.getElementById("foodNameEdit").value = (response.res).TenMonAn;
-                        document.getElementById("foodPriceEdit").value = (response.res).Gia;
-                        document.getElementById("foodUnitEdit").value = (response.res).DonViTinh;
-                        document.getElementById("foodDesEdit").value = (response.res).MoTa;
-                        document.getElementById("foodTimeEdit").value = (response.res).ThoiGianRaMat;
-                        $("#foodImgEdit").attr('src', (response.res).HinhAnh);
+                        document.getElementById("foodNameEdit").value = response.TenMonAn;
+                        document.getElementById("foodPriceEdit").value = response.Gia;
+                        document.getElementById("foodUnitEdit").value = response.DonViTinh;
+                        document.getElementById("foodDesEdit").value = response.MoTa;
+                        document.getElementById("foodTimeEdit").value = response.ThoiGianRaMat;
+                        $("#foodImgEdit").attr('src', response.HinhAnh);
                     }
                 },
                 error: function (msg) {
@@ -567,7 +565,7 @@
             });
             $("#btnEdit").click(function () {
                 swal({
-                    title: "Bạn có chắc chắn muốn sửa thông tin đầu bếp này không?",
+                    title: "Bạn có chắc chắn muốn sửa thông tin món ăn này không?",
                     text: "Kiểm tra kỹ trước khi thực hiện!",
                     icon: "warning",
                     type: "warning"

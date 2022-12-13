@@ -6,34 +6,31 @@ namespace Restaurant.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("DanhGia")]
-    public partial class DanhGia
+    [Table("DanhSachGoiMonTruoc")]
+    public partial class DanhSachGoiMonTruoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DanhGia()
+        public DanhSachGoiMonTruoc()
         {
-            DanhSachGoiMons = new HashSet<DanhSachGoiMon>();
+            DSGMTruoc_MonAn = new HashSet<DSGMTruoc_MonAn>();
         }
 
         [Key]
         [StringLength(10)]
-        public string MaDanhGia { get; set; }
+        public string MaGoiMonTruoc { get; set; }
 
-        public string MoTa { get; set; }
+        public string GhiChu { get; set; }
 
-        public int? SoSao { get; set; }
-
-        public string BinhLuan { get; set; }
-
-        public DateTime? ThoiGian { get; set; }
+        public bool? TinhTrang { get; set; }
 
         [StringLength(10)]
-        public string MaGoiMon { get; set; }
+        public string MaBanDatTruoc { get; set; }
 
-        [StringLength(10)]
-        public string MaKhachHang { get; set; }
+        public bool? TonTai { get; set; }
+
+        public virtual BanDatTruoc BanDatTruoc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhSachGoiMon> DanhSachGoiMons { get; set; }
+        public virtual ICollection<DSGMTruoc_MonAn> DSGMTruoc_MonAn { get; set; }
     }
 }

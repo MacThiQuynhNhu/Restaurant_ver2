@@ -91,7 +91,9 @@
                                                     <a href="~/Waiter_Home/CapNhatBan?MaBan=@item.MaBan" data-id="@item.MaBan" class="btn btn-primary" role="button" title="Chỉnh sửa thông tin">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
-                                                    
+                                                    <buttonc data-id="@item.MaBan" class="btn btn-primary updateStatus" role="button" title="Cập nhật trạng thái bàn">
+                                                        <i class="fa fa-adjust"></i>
+                                                    </buttonc>
                                                 </td>
                                             </tr>
                                             counter++;
@@ -234,6 +236,37 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="btnEdit" style="padding: 5px 15px 5px 10px;">Lưu lại</button>
                 <button type="button" class="btn btn-secondary class=" close closeEditModal data-dismiss="modal" style="padding: 5px 15px 5px 10px;">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="updateStatusModal" style="margin-left: 0px; overflow-y: hidden;" class="modal fade" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style=" left:7%;top:-3%; width: 40%; height: 800px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLabel" style="color: black; text-align: center; font-size: x-large;">Cập nhật trạng thái bàn</div>
+                <button type="button" class="close closeUpdateStatusModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0px;padding-top: 0px;">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12" style="padding:0; justify-content: center">
+                        <div class="widget-body bordered-bottom col-lg-6" style="margin-left: 1rem;">
+                            <input type="radio" id="0" name="status" value="0">
+                            <label for="html">Đã đặt trước</label><br>
+                            <input type="radio" id="css" name="status" value="1">
+                            <label for="css">Đang chờ phục vụ</label><br>
+                            <input type="radio" id="javascript" name="status" value="2">
+                            <label for="javascript">Trống</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnUpdateStatus" style="padding: 5px 15px 5px 10px;">Cập nhật</button>
+                <button type="button" id="closeUpdateStatusModal_" class="btn btn-secondary closeUpdateStatus class=" close closeUpdateStatus data-dismiss="modal" style="padding: 5px 15px 5px 10px;">Hủy</button>
             </div>
         </div>
     </div>

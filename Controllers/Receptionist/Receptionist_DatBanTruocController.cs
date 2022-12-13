@@ -47,10 +47,11 @@ namespace Restaurant.Controllers.Receptionist
             var updateModel = db.BanDatTruocs.Find(model.MaKhachHang);
             //gan gia tri
 
+            if(model.MaBan != null)
             updateModel.MaBan = model.MaBan;
             updateModel.Ngay = model.Ngay;
             updateModel.Gio = model.Gio;
-            updateModel.MaNhanVien = model.MaNhanVien;
+            //updateModel.MaNhanVien = model.MaNhanVien;
             updateModel.SoLuong = model.SoLuong;
             updateModel.GhiChu = model.GhiChu;
             //luu thay doi

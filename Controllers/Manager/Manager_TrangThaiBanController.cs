@@ -46,7 +46,7 @@ namespace Restaurant.Controllers.Manager
             List<SelectListItem> items = new List<SelectListItem>();
             items.Add(new SelectListItem { Text = "Tất cả", Value = "0" });
             items.Add(new SelectListItem { Text = "Đang chờ phục vụ", Value = "1" });
-            items.Add(new SelectListItem { Text = "Đang phục vụ", Value = "2" });
+            items.Add(new SelectListItem { Text = "Đã được phục vụ", Value = "2" });
             // 2.1. Thiết lập số trang đang chọn vào danh sách List<SelectListItem> items
             foreach (var item in items)
             {
@@ -65,9 +65,9 @@ namespace Restaurant.Controllers.Manager
             }
             ViewBag.fullListFood = cons.MonAns.ToList();
             ViewBag.khachHang = cons.KhachHangs.SingleOrDefault(x => x.MaKhachHang == dsGoiMon.MaKhachHang);
-            ViewBag.hoaDon = cons.HoaDons.SingleOrDefault(x => x.MaHoaDon == dsGoiMon.MaHoaDon);
+            //ViewBag.hoaDon = cons.HoaDons.SingleOrDefault(x => x.MaHoaDon == dsGoiMon.MaHoaDon);
             ViewBag.danhGia = cons.HoaDons.SingleOrDefault(x => x.MaGoiMon == dsGoiMon.MaGoiMon);
-            ViewBag.nhanVien = cons.NhanViens.SingleOrDefault(x => x.MaNhanVien == dsGoiMon.MaNhanVien);
+            //ViewBag.nhanVien = cons.NhanViens.SingleOrDefault(x => x.MaNhanVien == dsGoiMon.MaNhanVien);
             ViewBag.dsGoiMon = dsGoiMon;
             var dsMonAn = cons.DSGM_MonAn.ToList().Where(i => i.MaGoiMon == dsGoiMon.MaGoiMon);
             if (size == null || size.ToString() == "0")

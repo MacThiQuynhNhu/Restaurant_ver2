@@ -4,54 +4,138 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
 
-        <title>MTARES - Ẩm thực Việt</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
+    <title>MTARES - Ẩm thực Việt</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-        <!-- Favicons -->
-        <link href="~/Web_Admin/assets/img/favicon.png" rel="icon">
-        <link href="~/Web_Admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="~/Web_Admin/assets/img/favicon.png" rel="icon">
+    <link href="~/Web_Admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-        <!-- Google Fonts -->
-        <link href="https://fonts.gstatic.com" rel="preconnect">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Web_Admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-        <!-- Vendor CSS Files -->
-        <link href="~/Web_Admin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-        <link href="~/Web_Admin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="~/Web_Admin/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/jquery/css/jquery.ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.cscrollbar.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.jcrop.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.megaimgviewer.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.select2.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.rating.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.treegrid.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.lightbox.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery/css/jquery.stacktable.css" rel="stylesheet" />
+    @*Beyond*@
+    <link href="~/Content/beyond/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/weather-icons.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/beyond.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/demo.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/typicons.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/beyond/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    @*APP*@
+    <link href="~/Content/app/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/app/css/icons.css" rel="stylesheet" />
+    <link href="~/Content/app/css/main.css" rel="stylesheet" />
+    <link href="~/Content/app/css/size.css" rel="stylesheet" />
+    <link href="~/Content/app/css/stg.css" rel="stylesheet" />
+    <link href="~/Content/app/css/wf.css" rel="stylesheet" />
+    <link href="~/Content/app/css/cmt.css" rel="stylesheet" />
+    <link href="~/Content/app/css/ntfs.css" rel="stylesheet" />
+    <link href="~/Content/app/css/job.css" rel="stylesheet" />
+    <link href="~/Content/app/css/cust.css" rel="stylesheet" />
+    <link href="~/Content/app/css/style.css" rel="stylesheet" />
+    <link href="~/Content/app/css/fsi.css" rel="stylesheet" />
 
-        <link href="~/Web_Admin/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/Css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Css/style_manager.css" rel="stylesheet" />
+    <link href="~/Content/Css/loader.css" rel="stylesheet" />
+    <link href="~/Content/Css/Site.css" rel="stylesheet" />
 
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/vendors/prism.min.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    @*<link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap.min.css">*@
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/components.min.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link id="cssmenu" rel="stylesheet" type="text/css" href="~/Content/app-assets/css/vertical-menu.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/app-assets/css/palette-gradient.min.css">
+    <!-- END: Page CSS-->
+    <script src="~/Content/jquery/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Custom_Binh/css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Custom_Binh/css/comboTree.css">
 
-    </head>
+    <script src="~/Content/Custom_Binh/js/jqueryrepeater.js"></script>
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
 </head>
-<body>
+<style>
+
+    .navigation {
+        font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif !important;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    #main {
+        margin-left: 0px !important;
+        padding: 20px 0px !important;
+        margin-top: 0px !important;
+        min-height: 900px;
+    }
+
+    #footer {
+        position: fixed;
+        padding: 5px 10px !important;
+        background: #fff !important;
+        border-top: 1px solid #ccc;
+        margin-left: 0px !important;
+        justify-content: center;
+    }
+
+    .content-wrapper {
+        padding: 0px !important;
+    }
+
+    #mainContent {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+</style>
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
-
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="~/Receptionist_Home" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">MTARES</span>
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
-
-        <div class="search-bar">
+        <!--<div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Tìm kiếm" title="Enter search keyword">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
-        </div><!-- End Search Bar -->
+        </div>-->
+        <!-- End Search Bar -->
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
@@ -62,23 +146,470 @@
                     </a>
                 </li><!-- End Search Icon-->
 
+
+
             </ul>
         </nav><!-- End Icons Navigation -->
 
     </header><!-- End Header -->
     <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-        @RenderSection("Header", required: false)
-
-    </aside><!-- End Sidebar-->
-
-    <div style="margin-left: 350px;">
-        @RenderBody()
+                <li class="nav-item">
+                    <a href="~/Receptionist_Home"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Trang chủ</span></a>
+                </li>
+                <li>
+                    <a href="~/Receptionist_DatBanTruoc"><i class="fa fa-table"></i><span class="menu-title" data-i18n="Dashboard">Đặt bàn trước</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="~/Receptionist_KhachHang"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Layouts">Khách hàng</span></a>
+                </li>
+                <li class=" nav-item">
+                    <a href="~/Login"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Layouts">Đăng xuất</span></a>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div class="app-content content" style="background:#fff;">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-body">
+                @*<div id="sidebar_cus" class="col-lg-1">
+                         <div>
+
+                              @RenderSection("sidebar", required: false)
+                         </div>
+                    </div>*@
+
+                <!-- ### $App Screen Content ### -->
+                <div id='mainContent' class="container col-lg-12">
+
+                    @RenderSection("navTypes", required: false)
+                    @RenderBody()
+                </div>
+                <div id="change_pwd_modal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="widget">
+                                <div class="widget-header bordered-bottom bordered-yellow">
+                                    <div class="widget-caption has-sub-caption">
+                                        <span class="widget-caption-left"><i class="menu-icon fa fa-institution"></i></span>
+                                        <div class="widget-caption-right">
+                                            <span class="widget-mainCaption widget-mainCaption-inside">Đổi mật khẩu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-body bordered-bottom bordered-yellow" style="display:inline-block">
+
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Mật khẩu đang sử dụng</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" placeholder=".... " type="password" id="old_pass">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Mật khẩu mới</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" placeholder=".... " type="password" id="new_pass">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">Xác nhận mật khẩu mới</label>
+                                        <div class="col-lg-8">
+                                            <input class="form-control" placeholder=".... " type="password" id="renew_pass">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-danger" style="float:right;margin: 10px 30px;padding: 5px 20px;" data-dismiss="modal"><i class="fa fa-close"></i> Hủy</button>
+                                    <button class="btn btn-primary" id="change_pwd_save" style="float:right;margin: 10px 30px;padding: 5px 20px;"><i class="fa fa-edit"></i> Lưu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="~/Content/custom_js/common.js"></script>
+
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Content/app-assets/vendors/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Content/app-assets/vendors/prism.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Content/app-assets/js/app-menu.min.js"></script>
+    <script src="~/Content/app-assets/js/app.min.js"></script>
+    <script src="~/Content/app-assets/js/customizer.min.js"></script>
+    <!-- END: Theme JS-->
+    <!-- Jquery -->
+    <script src="~/Content/jquery/js/jquery.js"></script>
+    <script src="~/Content/jquery/js/jquery.datetimepicker.js"></script>
+    <script src="~/Content/jquery/js/jquery.contextMenu.js"></script>
+    <script src="~/Content/jquery/js/jquery.dateformat.js"></script>
+    <script src="~/Content/jquery/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/jquery/js/jquery.ui.js"></script>
+    <script src="~/Content/jquery/js/jquery.mousewheel.js"></script>
+    <script src="~/Content/jquery/js/jquery.cscrollbar.js"></script>
+    <script src="~/Content/jquery/js/jquery.select2.js"></script>
+    <script src="~/Content/jquery/js/jquery.jcrop.js"></script>
+    <script src="~/Content/jquery/js/jquery.stacktable.js"></script>
+    <script src="~/Content/jquery/js/jquery.serializejson.js"></script>
+    <script src="~/Content/jquery/js/jquery.megaimgviewer.js"></script>
+    <script src="~/Content/jquery/js/jquery.rating.js"></script>
+    <script src="~/Content/jquery/js/jquery.bootstrap-select.js"></script>
+    <script src="~/Content/jquery/js/jquery.treegrid.js"></script>
+    <script src="~/Content/jquery/js/jquery.lightbox-plus-jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    @*<script src="~/Content/bootstrap/js/bootstrap.js"></script>*@
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/bootstrap/js/dataTables.bootstrap.min.js"></script>
+    <!-- Beyond -->
+    <script src="~/Content/beyond/js/slimscroll/jquery.slimscroll.js"></script>
+    <script src="~/Content/beyond/js/validation/bootstrapValidator.js"></script>
+    <script src="~/Content/beyond/js/editors/summernote/summernote.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/easypiechart-init.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.orderBars.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/Chart.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/chartjs-init.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/raphael-2.0.2.min.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris-init.js"></script>
+    <script src="~/Content/beyond/js/skins.js"></script>
+    <script src="~/Content/beyond/js/beyond.js"></script>
+    <script src="~/Content/beyond/js/fullcalendar/fullcalendar.js"></script>
+
+    <!-- APP -->
+    @*<script src="~/Content/app/js/main.js"></script>*@
+    <script src="~/Content/app/js/autocomplete.js"></script>
+    <script src="~/Content/app/js/utils.js"></script>
+    <script src="~/Content/app/js/main.js"></script>
+    <script src="~/Content/app/js/uploader.js"></script>
+    <script src="~/Content/app/js/upfile.js"></script>
+    <script src="~/Content/app/js/admin.js"></script>
+    <script src="~/Content/app/js/avatar.js"></script>
+    <script src="~/Content/app/js/pages.js"></script>
+    <script src="~/Content/app/js/test.js"></script>
+    <script src="~/Content/app/js/cust.js"></script>
+    <script src="~/Content/app/js/calendarfull.js"></script>
+    <script src="~/Content/Scripts/dropzone.js"></script>
+    <script src="~/Content/Custom_Binh/js/sweetalert.min.js"></script>
+    <script src="~/Content/Custom_Binh/js/comboTreePlugin.js"></script>
+    <script src="~/Content/Custom_Binh/js/jqueryrepeater.js"></script>
+    <script src="~/Content/Utils/Util.js"></script>
+    <!-- Dropzone -->
+    <!-- BEGIN: Page JS-->
+    @*<script src="~/Content/app-assets/js/compact-menu.min.js"></script>*@
+    <!-- END: Page JS-->
+    <script>
+        $(document).ready(function () {
+            active_menu();
+            //cái này để xử lý sự kiện mở rộng và thu hẹp menu dọc
+            $("a.menu-toggle").click(function () {
+                if ($(this).hasClass("is-active")) {
+                    $(this).find("i").removeClass("fa-arrow-circle-left").addClass("fa-arrow-circle-right");
+                }
+                else {
+                    $(this).find("i").removeClass("fa-arrow-circle-right").addClass("fa-arrow-circle-left");
+                }
+            });
+            $("#Synchroni").click(function () {
+                //ajax
+                $.ajax({
+                    url: '/Synchronized/SynchronizedNewYear',
+                    type: 'post',
+                    dataType: 'json',
+
+                    success: function (res) {
+                        if (res) {
+                            alert("Đồng bộ thành công")
+                        }
+                        else {
+                            alert("Có lỗi xảy ra ! Vui lòng thử lại");
+                        }
+                    }
+                })
+            });
+
+
+            function active_menu() {
+                let url = window.location.href;
+
+                // kiểm tra có url trùng không
+                let sel = $('.main-menu a').filter(function () {
+                    return this.href == url;
+                });
+                // nếu không có url trùng thì tiếp tục chuẩn hóa
+                if (sel.length == 0) {
+                    if (url.includes("?")) {// nếu url có các params đằng sau thì xóa nó đi để chuẩn hóa
+                        let url_split = url.split('?')[0];
+                        url = url_split;
+                    }
+                    sel = $('.main-menu a').filter(function () {
+                        return this.href == url;
+                    });
+                    if (sel.length == 0) {
+                        let url_arr = url.split('/');
+                        let url_str = '/' + url_arr[url_arr.length - 2] + '/' + url_arr[url_arr.length - 1];
+                        switch (url_str) {
+                            // ================ List Equipment =================//
+                            case '/Receptionist_KhachHang/Themmoi':
+                                url_str = '/Receptionist_KhachHang';
+                                break;
+                            case '/Equipment/EquipmentEdit':
+                                url_str = '/Equipment/ListEquipment';
+                                break;
+                            // ================ List repair Ship =================//
+                            case '/Equipment/EquipmentBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/EquipmentBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            case '/Equipment/ViewBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/ViewBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            // ================ Land =================//
+                            case '/Land/LandCreate':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/EditLand':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/LandDetail':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            // ================ House =================//
+                            case '/House/HouseCreate':
+                                url_str = '/House/ListAllHouse';
+                                break;
+                            default:
+                                break;
+                        }
+                        url_str = window.location.origin + url_str;//chuẩn hóa lại url
+                        sel = $('.main-menu a').filter(function () {
+                            return this.href == url_str;
+                        });
+                    }
+                }
+
+                sel.addClass('bg-info text-white font-weight-bold');
+                let menuLevel_2 = sel.parent().parent().parent();
+                if (menuLevel_2.hasClass("has-sub")) {
+                    menuLevel_2.addClass("open");
+                    let menuLevel_1 = menuLevel_2.parent().parent();
+                    if (menuLevel_1.hasClass("has-sub")) {
+                        menuLevel_1.addClass("open");
+                    }
+                }
+            }
+            // end
+        })
+    </script>
+
+
+    <!-- END: Footer-->
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/Content/app-assets/vendors/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/Content/app-assets/vendors/prism.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/Content/app-assets/js/app-menu.min.js"></script>
+    <script src="~/Content/app-assets/js/app.min.js"></script>
+    <script src="~/Content/app-assets/js/customizer.min.js"></script>
+    <!-- END: Theme JS-->
+    <!-- Jquery -->
+    <script src="~/Content/jquery/js/jquery.js"></script>
+    <script src="~/Content/jquery/js/jquery.datetimepicker.js"></script>
+    <script src="~/Content/jquery/js/jquery.contextMenu.js"></script>
+    <script src="~/Content/jquery/js/jquery.dateformat.js"></script>
+    <script src="~/Content/jquery/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/jquery/js/jquery.ui.js"></script>
+    <script src="~/Content/jquery/js/jquery.mousewheel.js"></script>
+    <script src="~/Content/jquery/js/jquery.cscrollbar.js"></script>
+    <script src="~/Content/jquery/js/jquery.select2.js"></script>
+    <script src="~/Content/jquery/js/jquery.jcrop.js"></script>
+    <script src="~/Content/jquery/js/jquery.stacktable.js"></script>
+    <script src="~/Content/jquery/js/jquery.serializejson.js"></script>
+    <script src="~/Content/jquery/js/jquery.megaimgviewer.js"></script>
+    <script src="~/Content/jquery/js/jquery.rating.js"></script>
+    <script src="~/Content/jquery/js/jquery.bootstrap-select.js"></script>
+    <script src="~/Content/jquery/js/jquery.treegrid.js"></script>
+    <script src="~/Content/jquery/js/jquery.lightbox-plus-jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    @*<script src="~/Content/bootstrap/js/bootstrap.js"></script>*@
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/bootstrap/js/dataTables.bootstrap.min.js"></script>
+    <!-- Beyond -->
+    <script src="~/Content/beyond/js/slimscroll/jquery.slimscroll.js"></script>
+    <script src="~/Content/beyond/js/validation/bootstrapValidator.js"></script>
+    <script src="~/Content/beyond/js/editors/summernote/summernote.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="~/Content/beyond/js/charts/easypiechart/easypiechart-init.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="~/Content/beyond/js/charts/flot/jquery.flot.orderBars.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/Chart.js"></script>
+    <script src="~/Content/beyond/js/charts/chartjs/chartjs-init.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/raphael-2.0.2.min.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris.js"></script>
+    <script src="~/Content/beyond/js/charts/morris/morris-init.js"></script>
+    <script src="~/Content/beyond/js/skins.js"></script>
+    <script src="~/Content/beyond/js/beyond.js"></script>
+    <script src="~/Content/beyond/js/fullcalendar/fullcalendar.js"></script>
+
+    <!-- APP -->
+    @*<script src="~/Content/app/js/main.js"></script>*@
+    <script src="~/Content/app/js/autocomplete.js"></script>
+    <script src="~/Content/app/js/utils.js"></script>
+    <script src="~/Content/app/js/main.js"></script>
+    <script src="~/Content/app/js/uploader.js"></script>
+    <script src="~/Content/app/js/upfile.js"></script>
+    <script src="~/Content/app/js/admin.js"></script>
+    <script src="~/Content/app/js/avatar.js"></script>
+    <script src="~/Content/app/js/pages.js"></script>
+    <script src="~/Content/app/js/test.js"></script>
+    <script src="~/Content/app/js/cust.js"></script>
+    <script src="~/Content/app/js/calendarfull.js"></script>
+    <script src="~/Content/Scripts/dropzone.js"></script>
+    <script src="~/Content/Custom_Binh/js/sweetalert.min.js"></script>
+    <script src="~/Content/Custom_Binh/js/comboTreePlugin.js"></script>
+    <script src="~/Content/Custom_Binh/js/jqueryrepeater.js"></script>
+    <script src="~/Content/Utils/Util.js"></script>
+    <!-- Dropzone -->
+    <!-- BEGIN: Page JS-->
+    @*<script src="~/Content/app-assets/js/compact-menu.min.js"></script>*@
+    <!-- END: Page JS-->
+    <script>
+        $(document).ready(function () {
+            active_menu();
+            //cái này để xử lý sự kiện mở rộng và thu hẹp menu dọc
+            $("a.menu-toggle").click(function () {
+                if ($(this).hasClass("is-active")) {
+                    $(this).find("i").removeClass("fa-arrow-circle-left").addClass("fa-arrow-circle-right");
+                }
+                else {
+                    $(this).find("i").removeClass("fa-arrow-circle-right").addClass("fa-arrow-circle-left");
+                }
+            });
+            $("#Synchroni").click(function () {
+                //ajax
+                $.ajax({
+                    url: '/Synchronized/SynchronizedNewYear',
+                    type: 'post',
+                    dataType: 'json',
+
+                    success: function (res) {
+                        if (res) {
+                            alert("Đồng bộ thành công")
+                        }
+                        else {
+                            alert("Có lỗi xảy ra ! Vui lòng thử lại");
+                        }
+                    }
+                })
+            });
+
+
+            function active_menu() {
+                let url = window.location.href;
+
+                // kiểm tra có url trùng không
+                let sel = $('.main-menu a').filter(function () {
+                    return this.href == url;
+                });
+                // nếu không có url trùng thì tiếp tục chuẩn hóa
+                if (sel.length == 0) {
+                    if (url.includes("?")) {// nếu url có các params đằng sau thì xóa nó đi để chuẩn hóa
+                        let url_split = url.split('?')[0];
+                        url = url_split;
+                    }
+                    sel = $('.main-menu a').filter(function () {
+                        return this.href == url;
+                    });
+                    if (sel.length == 0) {
+                        let url_arr = url.split('/');
+                        let url_str = '/' + url_arr[url_arr.length - 2] + '/' + url_arr[url_arr.length - 1];
+                        switch (url_str) {
+                            // ================ List Equipment =================//
+                            case '/Receptionist_DatBanTruoc/ThemMoi':
+                                url_str = '/Receptionist_DatBanTruoc';
+                                break;
+                            case '/Equipment/EquipmentEdit':
+                                url_str = '/Equipment/ListEquipment';
+                                break;
+                            // ================ List repair Ship =================//
+                            case '/Equipment/EquipmentBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/EquipmentBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            case '/Equipment/ViewBillImport':
+                                url_str = '/Equipment/ListBillImport';
+                                break;
+                            case '/Equipment/ViewBillExport':
+                                url_str = '/Equipment/ListBillExport';
+                                break;
+                            // ================ Land =================//
+                            case '/Land/LandCreate':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/EditLand':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            case '/Land/LandDetail':
+                                url_str = '/Land/ListAllLand';
+                                break;
+                            // ================ House =================//
+                            case '/House/HouseCreate':
+                                url_str = '/House/ListAllHouse';
+                                break;
+                            default:
+                                break;
+                        }
+                        url_str = window.location.origin + url_str;//chuẩn hóa lại url
+                        sel = $('.main-menu a').filter(function () {
+                            return this.href == url_str;
+                        });
+                    }
+                }
+
+                sel.addClass('bg-info text-white font-weight-bold');
+                let menuLevel_2 = sel.parent().parent().parent();
+                if (menuLevel_2.hasClass("has-sub")) {
+                    menuLevel_2.addClass("open");
+                    let menuLevel_1 = menuLevel_2.parent().parent();
+                    if (menuLevel_1.hasClass("has-sub")) {
+                        menuLevel_1.addClass("open");
+                    }
+                }
+            }
+            // end
+        })
+    </script>
+
 
     <!-- Vendor JS Files -->
     <script src="~/Web_Admin/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -94,4 +625,3 @@
     <script src="~/Web_Admin/assets/js/main.js"></script>
 </body>
 </html>
-

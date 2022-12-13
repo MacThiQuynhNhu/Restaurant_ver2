@@ -89,29 +89,29 @@
 
         <div class="filters-content">
             <div class="row grid">
-                @foreach (sieukhuyenmai item in Model)
+                @foreach (KhuyenMai item in Model)
                 {
 
     <div class="col-sm-6 col-lg-4 all pizza wow fadeInUp" style="display: flex;">
         <div class="box box-news">
             <div>
-                <div class="img-box img-box-news">
-                    <img src="@item.monan.HinhAnh" alt="">
+                <!--<div class="img-box img-box-news">
+                    <img src="" alt="">
                 </div>
-
+                -->
                 <div class="detail-box">
 
-                    <p> <span class="tenmon">@item.monan.TenMonAn</span> <br />giảm đến <span>@item.khuyenmai.MucKhuyenMai% </span> </p>
+                    <p> <br />giảm đến <span>@item.MucKhuyenMai% </span> </p>
 
                     <p>
-                        Từ ngày @item.khuyenmai.ThoiGianBatDau
+                        Từ ngày @item.ThoiGianBatDau
                         <br />
-                        đến ngày @item.khuyenmai.ThoiGianKetThuc.
+                        đến ngày @item.ThoiGianKetThuc.
                     </p>
 
 
 
-                    <a href="/Special/subSpecial/@item.khuyenmai.MaKhuyenMai" style="align-self: flex-end;">Chi tiết</a>
+                    <a href="/Special/subSpecial/@item.MaKhuyenMai" style="align-self: flex-end;">Chi tiết</a>
                 </div>
             </div>
         </div>

@@ -1,35 +1,9 @@
 ﻿@model IEnumerable<Restaurant.Models.BanDatTruoc>
 
 @{ ViewBag.Title = "Tiếp tân - Đặt bàn trước";
-    Layout = "~/Views/Receptionist_Layout.cshtml"; }
-@section Header{
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="~/Receptionist_Home/Index">
-                <i class="bi bi-grid"></i>
-                <span>Trang chủ</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-            <a class="nav-link" href="~/Receptionist_DatBanTruoc/Index">
-                <i class="bi bi-person"></i>
-                <span>Đặt bàn trước</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
-
-
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="~/Receptionist_KhachHang/Index">
-                <i class="bi bi-person"></i>
-                <span>Khách hàng</span>
-            </a>
-        </li><!-- End Profile Page Nav -->
-        <!-- End Login Page Nav -->
-
-    </ul>
-}
+    Layout = "~/Views/Receptionist_Layout.cshtml";
+    var j = 0;
+    }
 <style>
     .custom-btn {
         width: 130px;
@@ -137,69 +111,90 @@
     /* btn them moi*/
 
 </style>
-<div class="container" style="margin-top:120px;min-height:80vh">
-    <div class="col-md-12">
-        <h5>
-            Danh sách bàn đặt trước
-        </h5>
-        <a class="custom-btn btn-1 text" style="float:right" href="/Receptionist_DatBanTruoc/ThemMoi">Thêm mới</a>
+
+<main id="main" class="main">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-yellow mb-3" style="display: flex">
+                    <div class="widget-caption has-sub-caption row col-lg-9 col-md-6">
+                        <span class="widget-caption-left" style="width:40px"><i class="menu-icon fa fa-tasks"></i></span>
+                        <div class="widget-caption-right">
+                            <span class="widget-mainCaption">
+                                Danh sách bàn đặt trước
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" style="padding-right: 0px;">
+                        <a class="custom-btn btn-1 text" style="float:right" href="/Receptionist_DatBanTruoc/ThemMoi">Thêm mới</a>                    </div>
+
+                </div>
+                <div class="row" style="margin-bottom: 0">
+                    <table id="allDoc_table" class="table table-striped table-bordered" cellspacing="0" style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr style="color:black; background-color:#00bcd4">
+                                <th style="text-align: center; width: 15px">
+                                    STT
+                                </th>
+                                <th style="text-align: center; width: 15px">
+                                    Mã khách hàng
+                                </th>
+                                <th style="text-align: center; width: 15px">
+                                    Mã Bàn
+                                </th>
+                                <th style="text-align: center; width: 35px">
+                                    Ngày
+                                </th>
+                                <th style="text-align: center; width: 25px">
+                                    Giờ
+                                </th>
+                                <th style="text-align: center; width: 15px"> 
+                                    Số lượng
+                                </th>
+                                <th style="text-align: center; width: 45px">
+                                    Ghi chú
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">@j</td>
+                                    @{
+                                        j = j + 1;
+                                    }
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+                                        @item.MaKhachHang
+                                    </td>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+
+                                        @item.MaBan
+                                    </td>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+                                        @item.Ngay
+                                    </td>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+                                        @item.Gio
+                                    </td>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+                                        @item.SoLuong
+                                    </td>
+                                    <td style="width: 5%; text-align: center; display: table-cell; vertical-align: middle">
+                                        @item.GhiChu
+                                    </td>
+                                    @*<td>
+                    @Html.ActionLink("Sửa", "CapNhat", new { idMaKhachHang = item.MaBanDatTruoc }) |
+                    @Html.ActionLink("Xóa", "Xoa", new { idMaKhachHang = item.MaBanDatTruoc })
+                </td>*@
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12">
-        <table class="table">
-            <tr>
-                <th>
-                    Mã khách hàng
-                </th>
-                <th>
-                    Mã Bàn
-                </th>
-                <th>
-                    Ngày
-                </th>
-                <th>
-                    Giờ
-                </th>
-                <th>
-                    Số lượng
-                </th>
-                <th>
-                    Ghi chú
-                </th>
-                <th>
-                    Chức năng
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-<tr>
-    <td>
-        @item.MaKhachHang
-    </td>
-    <td>
 
-        @item.MaBan
-    </td>
-    <td>
-        @item.Ngay
-    </td>
-    <td>
-        @item.Gio
-    </td>
-    <td>
-        @item.SoLuong
-    </td>
-    <td>
-        @item.GhiChu
-    </td>
-    <td>
-        @Html.ActionLink("Sửa", "CapNhat", new { idMaKhachHang = item.MaKhachHang }) |
-        @Html.ActionLink("Xóa", "Xoa", new { idMaKhachHang = item.MaKhachHang })
-    </td>
-
-</tr>
-       }
-        </table>
-
-    </div>
-
-</div>
+</main>

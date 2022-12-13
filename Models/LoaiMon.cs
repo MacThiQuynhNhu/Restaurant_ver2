@@ -24,6 +24,8 @@ namespace Restaurant.Models
 
         public string MoTa { get; set; }
 
+        public bool? TonTai { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonAn> MonAns { get; set; }
     }

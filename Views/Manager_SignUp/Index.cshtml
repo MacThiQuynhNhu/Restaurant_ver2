@@ -29,7 +29,7 @@
         display: inline-block;
         box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
         outline: none;
-    }
+}
 
     .text {
         margin-left: 900px;
@@ -228,7 +228,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: left; padding-left: 0;">
 
-                                @Html.PagedListPager(Model, page => Url.Action("Index", "Manager_DauBep", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
+                                @Html.PagedListPager(Model, page => Url.Action("Index", "Manager_SignUp", new { page, size = ViewBag.currentSize, searchString = ViewBag.searchValue }))
                             </div>
 
                             <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6 " style="text-align: right; padding-right: 0; padding-top: 20px">

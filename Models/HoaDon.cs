@@ -9,12 +9,6 @@ namespace Restaurant.Models
     [Table("HoaDon")]
     public partial class HoaDon
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HoaDon()
-        {
-            DanhSachGoiMons = new HashSet<DanhSachGoiMon>();
-        }
-
         [Key]
         [StringLength(10)]
         public string MaHoaDon { get; set; }
@@ -33,8 +27,9 @@ namespace Restaurant.Models
         [StringLength(10)]
         public string MaGoiMon { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhSachGoiMon> DanhSachGoiMons { get; set; }
+        public bool? TonTai { get; set; }
+
+        public virtual DanhSachGoiMon DanhSachGoiMon { get; set; }
 
         public virtual NhanVien NhanVien { get; set; }
     }

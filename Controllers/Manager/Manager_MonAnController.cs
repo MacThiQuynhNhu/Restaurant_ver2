@@ -142,6 +142,7 @@ namespace Restaurant.Controllers.Manager
                 return View(model);
             }
         }
+        
         [HttpPost]
         public JsonResult getDetail(string id)
         {
@@ -168,9 +169,10 @@ namespace Restaurant.Controllers.Manager
                     List<MonAn> listFood = context.MonAns.ToList();
                     int count = listFood.Count();
                     MonAn lastFood = listFood.ElementAt(count - 1);
-                    string temp_id = lastFood.MaMonAn;
-                    string number = temp_id.Split('A')[1];
-                    string next_id = "MA00" + (Int32.Parse(number) + 1).ToString();
+                    string id = (DateTime.UtcNow).ToString();
+                    string day = (id.Split(' ')[0]).Replace('/', '_');
+                    string time = (id.Split(' ')[1]).Replace(':', '_');
+                    string next_id = "MA" + time;
                     MonAn newDb = new MonAn();
                     newDb.MaMonAn = next_id;
                     newDb.TenMonAn = TenMonAn;
@@ -338,7 +340,7 @@ namespace Restaurant.Controllers.Manager
         //        }
         //    }
         //}
-       // [HttpPost]
+        //[HttpPost]
         //public JsonResult editFood(string MaMonAn, string TenMonAn, int Gia, string DonViTinh, string HinhAnh, DateTime? ThoiGianRaMat, string Mota, string MaLoaiMon)
         //{
         //    var context = new Model1();
@@ -388,5 +390,5 @@ namespace Restaurant.Controllers.Manager
         //        }
         //    }
         //}
-   }
+    }
 }

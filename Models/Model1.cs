@@ -17,14 +17,15 @@ namespace Restaurant.Models
         public virtual DbSet<BanDatTruoc> BanDatTruocs { get; set; }
         public virtual DbSet<DanhGia> DanhGias { get; set; }
         public virtual DbSet<DanhSachGoiMon> DanhSachGoiMons { get; set; }
+        public virtual DbSet<DanhSachGoiMonTruoc> DanhSachGoiMonTruocs { get; set; }
         public virtual DbSet<DauBep> DauBeps { get; set; }
         public virtual DbSet<DSGM_MonAn> DSGM_MonAn { get; set; }
+        public virtual DbSet<DSGMTruoc_MonAn> DSGMTruoc_MonAn { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<KhuyenMai> KhuyenMais { get; set; }
         public virtual DbSet<LoaiMon> LoaiMons { get; set; }
         public virtual DbSet<MonAn> MonAns { get; set; }
-        public virtual DbSet<MonAn_KhuyenMai> MonAn_KhuyenMai { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<NhomNguoiDung> NhomNguoiDungs { get; set; }
 
@@ -54,10 +55,6 @@ namespace Restaurant.Models
                 .Property(e => e.Gio)
                 .HasPrecision(0);
 
-            modelBuilder.Entity<BanDatTruoc>()
-                .Property(e => e.MaNhanVien)
-                .IsUnicode(false);
-
             modelBuilder.Entity<DanhGia>()
                 .Property(e => e.MaDanhGia)
                 .IsUnicode(false);
@@ -66,24 +63,12 @@ namespace Restaurant.Models
                 .Property(e => e.MaGoiMon)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<DanhGia>()
-                .Property(e => e.MaKhachHang)
-                .IsUnicode(false);
-
             modelBuilder.Entity<DanhSachGoiMon>()
                 .Property(e => e.MaGoiMon)
                 .IsUnicode(false);
 
             modelBuilder.Entity<DanhSachGoiMon>()
                 .Property(e => e.MaKhachHang)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DanhSachGoiMon>()
-                .Property(e => e.MaDanhGia)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DanhSachGoiMon>()
-                .Property(e => e.MaHoaDon)
                 .IsUnicode(false);
 
             modelBuilder.Entity<DanhSachGoiMon>()
@@ -91,12 +76,26 @@ namespace Restaurant.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DanhSachGoiMon>()
-                .Property(e => e.MaNhanVien)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DanhSachGoiMon>()
                 .HasMany(e => e.DSGM_MonAn)
                 .WithRequired(e => e.DanhSachGoiMon)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DanhSachGoiMon>()
+                .HasMany(e => e.HoaDons)
+                .WithRequired(e => e.DanhSachGoiMon)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<DanhSachGoiMonTruoc>()
+                .Property(e => e.MaGoiMonTruoc)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DanhSachGoiMonTruoc>()
+                .Property(e => e.MaBanDatTruoc)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DanhSachGoiMonTruoc>()
+                .HasMany(e => e.DSGMTruoc_MonAn)
+                .WithRequired(e => e.DanhSachGoiMonTruoc)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<DauBep>()
@@ -112,6 +111,14 @@ namespace Restaurant.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<DSGM_MonAn>()
+                .Property(e => e.MaMonAn)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DSGMTruoc_MonAn>()
+                .Property(e => e.MaGoiMonTruoc)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DSGMTruoc_MonAn>()
                 .Property(e => e.MaMonAn)
                 .IsUnicode(false);
 
@@ -144,11 +151,6 @@ namespace Restaurant.Models
                 .Property(e => e.MaKhuyenMai)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<KhuyenMai>()
-                .HasMany(e => e.MonAn_KhuyenMai)
-                .WithRequired(e => e.KhuyenMai)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<LoaiMon>()
                 .Property(e => e.MaLoaiMon)
                 .IsUnicode(false);
@@ -167,17 +169,9 @@ namespace Restaurant.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MonAn>()
-                .HasMany(e => e.MonAn_KhuyenMai)
+                .HasMany(e => e.DSGMTruoc_MonAn)
                 .WithRequired(e => e.MonAn)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<MonAn_KhuyenMai>()
-                .Property(e => e.MaMonAn)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MonAn_KhuyenMai>()
-                .Property(e => e.MaKhuyenMai)
-                .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
                 .Property(e => e.MaNhanVien)
